@@ -2056,12 +2056,12 @@ var Icon$9 = function (props) {
 
 var Icon$8 = function (props) {
     return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 24 24" }, props),
-        React__default['default'].createElement(gi.GiCampCookingPot, { size: '32px' })));
+        React__default['default'].createElement(gi.GiCampCookingPot, { size: '24px' })));
 };
 
 var Icon$7 = function (props) {
     return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 24 24" }, props),
-        React__default['default'].createElement(cg.CgSmartHomeCooker, { size: '32px' })));
+        React__default['default'].createElement(cg.CgSmartHomeCooker, { size: '24px' })));
 };
 
 var IconModule = /*#__PURE__*/Object.freeze({

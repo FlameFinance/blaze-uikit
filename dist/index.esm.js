@@ -2043,12 +2043,12 @@ var Icon$9 = function (props) {
 
 var Icon$8 = function (props) {
     return (React.createElement(Svg, __assign({ viewBox: "0 0 24 24" }, props),
-        React.createElement(GiCampCookingPot, null)));
+        React.createElement(GiCampCookingPot, { size: '32px' })));
 };
 
 var Icon$7 = function (props) {
     return (React.createElement(Svg, __assign({ viewBox: "0 0 24 24" }, props),
-        React.createElement(CgSmartHomeCooker, null)));
+        React.createElement(CgSmartHomeCooker, { size: '32px' })));
 };
 
 var IconModule = /*#__PURE__*/Object.freeze({

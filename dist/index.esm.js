@@ -2042,11 +2042,13 @@ var Icon$9 = function (props) {
 };
 
 var Icon$8 = function (props) {
-    return (React.createElement(GiCampCookingPot, null));
+    return (React.createElement(Svg, __assign({ viewBox: "0 0 24 24" }, props),
+        React.createElement(GiCampCookingPot, null)));
 };
 
 var Icon$7 = function (props) {
-    return (React.createElement(CgSmartHomeCooker, null));
+    return (React.createElement(Svg, __assign({ viewBox: "0 0 24 24" }, props),
+        React.createElement(CgSmartHomeCooker, null)));
 };
 
 var IconModule = /*#__PURE__*/Object.freeze({

@@ -6,7 +6,9 @@ import { GiCampCookingPot } from "react-icons/gi";
 
 const Icon: React.FC<SvgProps> = (props) => {
   return (
-    <CgSmartHomeCooker/>
+    <Svg viewBox="0 0 24 24" {...props}>
+        <CgSmartHomeCooker/>
+    </Svg>    
   );
 };
 

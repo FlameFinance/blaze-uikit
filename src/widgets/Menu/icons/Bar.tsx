@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const Bar = (props: React.SVGProps<SVGSVGElement>) => (
+const Bar: React.FC<SvgProps> = (props) => {
   <svg
     width={32}
     height={32}

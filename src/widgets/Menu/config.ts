@@ -121,7 +121,7 @@ export const socials = [
       {
         label: "English",
         href: "https://t.me/Flam3Finance",
-      }
+      },
     ],
   },
   {

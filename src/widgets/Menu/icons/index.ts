@@ -1,3 +1,5 @@
+import { CgSmartHomeCooker } from "react-icons/cg";
+import { GiCampCookingPot } from "react-icons/gi";
 export { default as FarmIcon } from "./Farm";
 export { default as GroupsIcon } from "./Groups";
 export { default as HamburgerIcon } from "./Hamburger";
@@ -25,6 +27,5 @@ export { default as RoadmapIcon } from "./Roadmap";
 export { default as BondsIcon } from "./Bonds";
 export { default as VaultsIcon } from "./Vaults";
 export { default as EggHouseIcon } from "./EggHouse";
-export { default as BarIcon } from "./Bar";
-export { default as StoveIcon } from "./Stove";
-export { default as OvenIcon } from "./Oven";
+export { CgSmartHomeCooker as OvenIcon };
+export { GiCampCookingPot as StoveIcon };

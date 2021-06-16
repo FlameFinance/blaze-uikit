@@ -2480,10 +2480,10 @@ var MobileOnlyOverlay = styled(Overlay)(templateObject_5 || (templateObject_5 = 
     return theme.mediaQueries.nav;
 });
 var Menu = function (_a) {
-    var _b;
+    var _b, _c;
     var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme; _a.langs; _a.setLang; _a.currentLang; _a.cakePriceUsd; var links = _a.links; _a.priceLink; var profile = _a.profile, children = _a.children;
     useMatchBreakpoints().isXl;
-    var _c = useState(false), isPushed = _c[0], setIsPushed = _c[1];
+    var _d = useState(false), isPushed = _d[0], setIsPushed = _d[1];
     var showMenu = true;
     var refPrevOffset = useRef(window.pageYOffset);
     useEffect(function () {
@@ -2504,6 +2504,44 @@ var Menu = function (_a) {
     return (React.createElement(Wrapper, null,
         React.createElement(StyledNav, { showMenu: showMenu },
             React.createElement(Logo, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
+            React.createElement(Flex, null,
+                React.createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
+                    React.createElement(Flex, { alignItems: "center" },
+                        React.createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
+                        React.createElement(Text, { color: "textDisabled", mx: "4px" }, "/"),
+                        React.createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" })))),
+            React.createElement(Flex, null,
+                React.createElement(Button, { size: "sm", onClick: function (e) {
+                        e.preventDefault();
+                        window.location.href = '/';
+                    } },
+                    React.createElement(HomeIcon, { color: isDark ? "text" : "textDisabled", width: "24px" }),
+                    "Home ")),
+            React.createElement(Flex, null,
+                React.createElement(Button, { size: "sm", onClick: function (e) {
+                        e.preventDefault();
+                        window.location.href = '/stoves';
+                    } },
+                    React.createElement(StoveIcon, { color: isDark ? "text" : "textDisabled", width: "24px" }),
+                    "Stoves ")),
+            React.createElement(Flex, null,
+                React.createElement(Button, { size: "sm", onClick: function (e) {
+                        e.preventDefault();
+                        window.location.href = '/ovens';
+                    } },
+                    React.createElement(OvenIcon, { color: isDark ? "text" : "textDisabled", width: "24px" }),
+                    "Ovens ")),
+            React.createElement(Flex, null,
+                React.createElement(UserBlock, { account: account, login: login, logout: logout }),
+                profile && React.createElement(Avatar, { profile: profile }))),
+        React.createElement(StyledNav, { showMenu: showMenu },
+            React.createElement(Logo, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_c = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _c !== void 0 ? _c : "/" }),
+            React.createElement(Flex, null,
+                React.createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
+                    React.createElement(Flex, { alignItems: "center" },
+                        React.createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
+                        React.createElement(Text, { color: "textDisabled", mx: "4px" }, "/"),
+                        React.createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" })))),
             React.createElement(Flex, null,
                 React.createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
@@ -2529,12 +2567,6 @@ var Menu = function (_a) {
                 React.createElement(UserBlock, { account: account, login: login, logout: logout }),
                 profile && React.createElement(Avatar, { profile: profile }))),
         React.createElement(BodyWrapper, null,
-            React.createElement(Flex, null,
-                React.createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
-                    React.createElement(Flex, { alignItems: "center" },
-                        React.createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
-                        React.createElement(Text, { color: "textDisabled", mx: "4px" }, "/"),
-                        React.createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" })))),
             React.createElement(Inner, { isPushed: isPushed, showMenu: showMenu }, children),
             React.createElement(MobileOnlyOverlay, { show: isPushed, onClick: function () { return setIsPushed(false); }, role: "presentation" }))));
 };

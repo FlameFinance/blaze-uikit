@@ -2493,10 +2493,10 @@ var MobileOnlyOverlay = styled__default['default'](Overlay)(templateObject_5 || 
     return theme.mediaQueries.nav;
 });
 var Menu = function (_a) {
-    var _b;
+    var _b, _c;
     var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme; _a.langs; _a.setLang; _a.currentLang; _a.cakePriceUsd; var links = _a.links; _a.priceLink; var profile = _a.profile, children = _a.children;
     useMatchBreakpoints().isXl;
-    var _c = React.useState(false), isPushed = _c[0], setIsPushed = _c[1];
+    var _d = React.useState(false), isPushed = _d[0], setIsPushed = _d[1];
     var showMenu = true;
     var refPrevOffset = React.useRef(window.pageYOffset);
     React.useEffect(function () {
@@ -2517,6 +2517,44 @@ var Menu = function (_a) {
     return (React__default['default'].createElement(Wrapper, null,
         React__default['default'].createElement(StyledNav, { showMenu: showMenu },
             React__default['default'].createElement(Logo, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
+            React__default['default'].createElement(Flex, null,
+                React__default['default'].createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
+                    React__default['default'].createElement(Flex, { alignItems: "center" },
+                        React__default['default'].createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
+                        React__default['default'].createElement(Text, { color: "textDisabled", mx: "4px" }, "/"),
+                        React__default['default'].createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" })))),
+            React__default['default'].createElement(Flex, null,
+                React__default['default'].createElement(Button, { size: "sm", onClick: function (e) {
+                        e.preventDefault();
+                        window.location.href = '/';
+                    } },
+                    React__default['default'].createElement(HomeIcon, { color: isDark ? "text" : "textDisabled", width: "24px" }),
+                    "Home ")),
+            React__default['default'].createElement(Flex, null,
+                React__default['default'].createElement(Button, { size: "sm", onClick: function (e) {
+                        e.preventDefault();
+                        window.location.href = '/stoves';
+                    } },
+                    React__default['default'].createElement(StoveIcon, { color: isDark ? "text" : "textDisabled", width: "24px" }),
+                    "Stoves ")),
+            React__default['default'].createElement(Flex, null,
+                React__default['default'].createElement(Button, { size: "sm", onClick: function (e) {
+                        e.preventDefault();
+                        window.location.href = '/ovens';
+                    } },
+                    React__default['default'].createElement(OvenIcon, { color: isDark ? "text" : "textDisabled", width: "24px" }),
+                    "Ovens ")),
+            React__default['default'].createElement(Flex, null,
+                React__default['default'].createElement(UserBlock, { account: account, login: login, logout: logout }),
+                profile && React__default['default'].createElement(Avatar, { profile: profile }))),
+        React__default['default'].createElement(StyledNav, { showMenu: showMenu },
+            React__default['default'].createElement(Logo, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_c = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _c !== void 0 ? _c : "/" }),
+            React__default['default'].createElement(Flex, null,
+                React__default['default'].createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
+                    React__default['default'].createElement(Flex, { alignItems: "center" },
+                        React__default['default'].createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
+                        React__default['default'].createElement(Text, { color: "textDisabled", mx: "4px" }, "/"),
+                        React__default['default'].createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" })))),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
@@ -2542,12 +2580,6 @@ var Menu = function (_a) {
                 React__default['default'].createElement(UserBlock, { account: account, login: login, logout: logout }),
                 profile && React__default['default'].createElement(Avatar, { profile: profile }))),
         React__default['default'].createElement(BodyWrapper, null,
-            React__default['default'].createElement(Flex, null,
-                React__default['default'].createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
-                    React__default['default'].createElement(Flex, { alignItems: "center" },
-                        React__default['default'].createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
-                        React__default['default'].createElement(Text, { color: "textDisabled", mx: "4px" }, "/"),
-                        React__default['default'].createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" })))),
             React__default['default'].createElement(Inner, { isPushed: isPushed, showMenu: showMenu }, children),
             React__default['default'].createElement(MobileOnlyOverlay, { show: isPushed, onClick: function () { return setIsPushed(false); }, role: "presentation" }))));
 };

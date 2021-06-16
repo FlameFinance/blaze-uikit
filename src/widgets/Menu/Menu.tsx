@@ -22,13 +22,6 @@ const Wrapper = styled.div`
   position: relative;
   width: 100%;
 `;
-const SettingsEntry = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: ${MENU_ENTRY_HEIGHT}px;
-  padding: 0 8px;
-`;
 const StyledNav = styled.nav<{ showMenu: boolean }>`
   position: fixed;
   top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
@@ -147,7 +140,6 @@ const Menu: React.FC<NavProps> = ({
           {profile && <Avatar profile={profile} />}
         </Flex>
         <Flex>
-          <SettingsEntry>
           <Button variant="text" onClick={() => toggleTheme(!isDark)}>
             <Flex alignItems="center">
               <SunIcon color={isDark ? "textDisabled" : "text"} width="24px" />
@@ -157,8 +149,6 @@ const Menu: React.FC<NavProps> = ({
               <MoonIcon color={isDark ? "text" : "textDisabled"} width="24px" />
             </Flex>
           </Button>
-        </SettingsEntry>
-
         </Flex>
       </StyledNav>
       <BodyWrapper>

@@ -38,7 +38,6 @@ export interface PanelProps {
     currentLang: string;
     langs: LangType[];
     setLang: (lang: LangType) => void;
-    links: Array<MenuEntry>;
     priceLink: string;
 }
 export interface NavProps extends PanelProps {
@@ -46,4 +45,5 @@ export interface NavProps extends PanelProps {
     login: Login;
     profile?: Profile;
     logout: () => void;
+    links: Array<MenuEntry>;
 }

@@ -108,10 +108,24 @@ const Menu: React.FC<NavProps> = ({
           isDark={isDark}
           href={homeLink?.href ?? "/"}
         />
-        <Button size="sm" onClick={(e) => {
-            e.preventDefault();
-            window.location.href='/ovens';
-          }}> Ovens </Button>
+        <Flex>
+          <Button size="sm" onClick={(e) => {
+              e.preventDefault();
+              window.location.href='/';
+            }}> Home </Button> 
+        </Flex>
+        <Flex>
+          <Button size="sm" onClick={(e) => {
+              e.preventDefault();
+              window.location.href='/stoves';
+            }}> Stoves </Button> 
+        </Flex>        
+        <Flex>
+          <Button size="sm" onClick={(e) => {
+              e.preventDefault();
+              window.location.href='/ovens';
+            }}> Ovens </Button> 
+        </Flex>
         <Flex>
           <UserBlock account={account} login={login} logout={logout} />
           {profile && <Avatar profile={profile} />}

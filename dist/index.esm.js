@@ -183,7 +183,7 @@ StyledButton.defaultProps = {
 };
 var templateObject_1$C;
 
-var Button = function (_a) {
+var Button$1 = function (_a) {
     var startIcon = _a.startIcon, endIcon = _a.endIcon, children = _a.children, external = _a.external, isLoading = _a.isLoading, disabled = _a.disabled, props = __rest(_a, ["startIcon", "endIcon", "children", "external", "isLoading", "disabled"]);
     var internalProps = external ? getExternalLinkProps() : {};
     var isDisabled = isLoading || disabled;
@@ -198,7 +198,7 @@ var Button = function (_a) {
                 ml: "0.5rem",
             })));
 };
-Button.defaultProps = {
+Button$1.defaultProps = {
     variant: variants$1.PRIMARY,
     size: sizes$1.MD,
     external: false,
@@ -206,7 +206,7 @@ Button.defaultProps = {
     disabled: false,
 };
 
-var IconButton = styled(Button)(templateObject_1$B || (templateObject_1$B = __makeTemplateObject(["\n  padding: 0;\n  width: ", ";\n"], ["\n  padding: 0;\n  width: ", ";\n"])), function (_a) {
+var IconButton = styled(Button$1)(templateObject_1$B || (templateObject_1$B = __makeTemplateObject(["\n  padding: 0;\n  width: ", ";\n"], ["\n  padding: 0;\n  width: ", ";\n"])), function (_a) {
     var size = _a.size;
     return (size === "sm" ? "32px" : "48px");
 });
@@ -641,7 +641,7 @@ var ButtonMenu = function (_a) {
     })));
 };
 
-var InactiveButton = styled(Button)(templateObject_1$w || (templateObject_1$w = __makeTemplateObject(["\n  background-color: transparent;\n  color: ", ";\n\n  &:hover:not(:disabled):not(:active) {\n    background-color: transparent;\n  }\n"], ["\n  background-color: transparent;\n  color: ", ";\n\n  &:hover:not(:disabled):not(:active) {\n    background-color: transparent;\n  }\n"])), function (_a) {
+var InactiveButton = styled(Button$1)(templateObject_1$w || (templateObject_1$w = __makeTemplateObject(["\n  background-color: transparent;\n  color: ", ";\n\n  &:hover:not(:disabled):not(:active) {\n    background-color: transparent;\n  }\n"], ["\n  background-color: transparent;\n  color: ", ";\n\n  &:hover:not(:disabled):not(:active) {\n    background-color: transparent;\n  }\n"])), function (_a) {
     var theme = _a.theme, colorKey = _a.colorKey;
     return theme.colors[colorKey];
 });
@@ -650,7 +650,7 @@ var ButtonMenuItem = function (_a) {
     if (!isActive) {
         return (React.createElement(InactiveButton, __assign({ forwardedAs: as, size: size, variant: "tertiary", colorKey: variant === variants$1.PRIMARY ? "primary" : "textSubtle" }, props)));
     }
-    return React.createElement(Button, __assign({ as: as, size: size, variant: variant }, props));
+    return React.createElement(Button$1, __assign({ as: as, size: size, variant: variant }, props));
 };
 var templateObject_1$w;
 
@@ -1968,7 +1968,7 @@ var localStorageKey = "accountStatus";
 var WalletCard = function (_a) {
     var login = _a.login, walletConfig = _a.walletConfig, onDismiss = _a.onDismiss, mb = _a.mb;
     var title = walletConfig.title, Icon = walletConfig.icon;
-    return (React.createElement(Button, { fullWidth: true, variant: "tertiary", onClick: function () {
+    return (React.createElement(Button$1, { fullWidth: true, variant: "tertiary", onClick: function () {
             login(walletConfig.connectorId);
             window.localStorage.setItem(localStorageKey, "1");
             onDismiss();
@@ -2024,7 +2024,7 @@ var AccountModal = function (_a) {
             React.createElement(LinkExternal, { small: true, href: "https://bscscan.com/address/" + account, mr: "16px" }, "View on BscScan"),
             React.createElement(CopyToClipboard, { toCopy: account }, "Copy Address")),
         React.createElement(Flex, { justifyContent: "center" },
-            React.createElement(Button, { size: "sm", variant: "secondary", onClick: function () {
+            React.createElement(Button$1, { size: "sm", variant: "secondary", onClick: function () {
                     logout();
                     window.localStorage.removeItem(localStorageKey);
                     onDismiss();
@@ -2042,9 +2042,9 @@ var UserBlock = function (_a) {
     var account = _a.account, login = _a.login, logout = _a.logout;
     var _b = useWalletModal(login, logout, account), onPresentConnectModal = _b.onPresentConnectModal, onPresentAccountModal = _b.onPresentAccountModal;
     var accountEllipsis = account ? account.substring(0, 4) + "..." + account.substring(account.length - 4) : null;
-    return (React.createElement("div", null, account ? (React.createElement(Button, { size: "sm", variant: "tertiary", onClick: function () {
+    return (React.createElement("div", null, account ? (React.createElement(Button$1, { size: "sm", variant: "tertiary", onClick: function () {
             onPresentAccountModal();
-        } }, accountEllipsis)) : (React.createElement(Button, { size: "sm", onClick: function () {
+        } }, accountEllipsis)) : (React.createElement(Button$1, { size: "sm", onClick: function () {
             onPresentConnectModal();
         } }, "Connect"))));
 };
@@ -2253,6 +2253,7 @@ var Menu = function (_a) {
     return (React.createElement(Wrapper, null,
         React.createElement(StyledNav, { showMenu: showMenu },
             React.createElement(Logo, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
+            React.createElement(Button, null, " Yo yo yo "),
             React.createElement(Flex, null,
                 React.createElement(UserBlock, { account: account, login: login, logout: logout }),
                 profile && React.createElement(Avatar, { profile: profile }))),
@@ -2265,9 +2266,9 @@ var templateObject_1$3, templateObject_2, templateObject_3, templateObject_4, te
 var ToastAction = function (_a) {
     var action = _a.action;
     if (action.url.startsWith("http")) {
-        return (React.createElement(Button, __assign({ as: "a", size: "sm", href: action.url }, getExternalLinkProps()), action.text));
+        return (React.createElement(Button$1, __assign({ as: "a", size: "sm", href: action.url }, getExternalLinkProps()), action.text));
     }
-    return (React.createElement(Button, { as: Link$1, size: "sm", to: action.url }, action.text));
+    return (React.createElement(Button$1, { as: Link$1, size: "sm", to: action.url }, action.text));
 };
 
 var types = {
@@ -2511,4 +2512,4 @@ var darkTheme = __assign(__assign({}, base), { isDark: true, alert: dark$6, butt
 
 var lightTheme = __assign(__assign({}, base), { isDark: false, alert: light$6, button: light$5, colors: lightColors, card: light$4, toggle: light$2, nav: light$1, modal: light, radio: light$3 });
 
-export { Icon$K as AddIcon, Alert, Icon$J as ArrowBackIcon, Icon$I as ArrowDownIcon, Icon$H as ArrowDropDownIcon, Icon$G as ArrowDropUpIcon, Icon$F as ArrowForwardIcon, Icon$E as AutoRenewIcon, BackgroundImage, GridLayout$1 as BaseLayout, Icon$D as BinanceIcon, Icon$M as BlockIcon, Breadcrumbs, Icon$C as BunnyPlaceholderIcon, Button, ButtonMenu, ButtonMenuItem, Icon$A as CalculateIcon, Card, CardBody, CardFooter, CardHeader, CardRibbon, Icon$B as CardViewIcon, GridLayout as CardsLayout, Checkbox, Icon$O as CheckmarkCircleIcon, Icon$z as CheckmarkIcon, Icon$y as ChevronDownIcon, Icon$x as ChevronLeftIcon, Icon$w as ChevronRightIcon, Icon$v as ChevronUpIcon, Icon$u as CloseIcon, Icon$t as CogIcon, Icon$s as CommunityIcon, Icon$r as CopyIcon, CopyToClipboard, Dropdown, Icon$N as ErrorIcon, Flex, Icon$i as GooseRoundIcon, Heading, Icon$q as HelpIcon, IconButton, Image, Icon$L as InfoIcon, Input$1 as Input, Link, LinkExternal, Icon$p as ListViewIcon, Icon$o as LogoIcon, Icon$n as LogoRoundIcon, Menu, Icon$m as MinusIcon, Modal, ModalProvider, Icon$l as OpenNewIcon, Icon$j as PancakeRoundIcon, Icon$k as PancakesIcon, Icon$h as PrizeIcon, Progress, Icon$e as ProgressBunny, Radio, Icon$g as RemoveIcon, ResetCSS, Icon$a as SearchIcon, Skeleton, Spinner, Svg, Icon$9 as SwapVertIcon, Icon$8 as SyncAltIcon, Tag, Text, Icon$c as Ticket, Icon$b as TicketRound, ToastContainer, Toggle, Icon$f as VerifiedIcon, Icon$7 as WarningIcon, Icon$d as Won, variants as alertVariants, byTextAscending, byTextDescending, darkTheme as dark, darkColors, lightTheme as light, lightColors, makeRender, links as menuConfig, types as toastTypes, useMatchBreakpoints, useModal, useParticleBurst, useTable, useWalletModal };
+export { Icon$K as AddIcon, Alert, Icon$J as ArrowBackIcon, Icon$I as ArrowDownIcon, Icon$H as ArrowDropDownIcon, Icon$G as ArrowDropUpIcon, Icon$F as ArrowForwardIcon, Icon$E as AutoRenewIcon, BackgroundImage, GridLayout$1 as BaseLayout, Icon$D as BinanceIcon, Icon$M as BlockIcon, Breadcrumbs, Icon$C as BunnyPlaceholderIcon, Button$1 as Button, ButtonMenu, ButtonMenuItem, Icon$A as CalculateIcon, Card, CardBody, CardFooter, CardHeader, CardRibbon, Icon$B as CardViewIcon, GridLayout as CardsLayout, Checkbox, Icon$O as CheckmarkCircleIcon, Icon$z as CheckmarkIcon, Icon$y as ChevronDownIcon, Icon$x as ChevronLeftIcon, Icon$w as ChevronRightIcon, Icon$v as ChevronUpIcon, Icon$u as CloseIcon, Icon$t as CogIcon, Icon$s as CommunityIcon, Icon$r as CopyIcon, CopyToClipboard, Dropdown, Icon$N as ErrorIcon, Flex, Icon$i as GooseRoundIcon, Heading, Icon$q as HelpIcon, IconButton, Image, Icon$L as InfoIcon, Input$1 as Input, Link, LinkExternal, Icon$p as ListViewIcon, Icon$o as LogoIcon, Icon$n as LogoRoundIcon, Menu, Icon$m as MinusIcon, Modal, ModalProvider, Icon$l as OpenNewIcon, Icon$j as PancakeRoundIcon, Icon$k as PancakesIcon, Icon$h as PrizeIcon, Progress, Icon$e as ProgressBunny, Radio, Icon$g as RemoveIcon, ResetCSS, Icon$a as SearchIcon, Skeleton, Spinner, Svg, Icon$9 as SwapVertIcon, Icon$8 as SyncAltIcon, Tag, Text, Icon$c as Ticket, Icon$b as TicketRound, ToastContainer, Toggle, Icon$f as VerifiedIcon, Icon$7 as WarningIcon, Icon$d as Won, variants as alertVariants, byTextAscending, byTextDescending, darkTheme as dark, darkColors, lightTheme as light, lightColors, makeRender, links as menuConfig, types as toastTypes, useMatchBreakpoints, useModal, useParticleBurst, useTable, useWalletModal };

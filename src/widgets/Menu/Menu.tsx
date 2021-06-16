@@ -40,8 +40,8 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   transform: translate3d(0, 0, 0);
 `;
 const StyledNavRel = styled.nav<{ showMenu: boolean }>`
-  position: relative;
-  top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
+  position: fixed;
+  top: ${({ showMenu }) => (showMenu ? `${MENU_HEIGHT}px` : 0)};
   left: 0;
   transition: top 0.2s;
   display: flex;

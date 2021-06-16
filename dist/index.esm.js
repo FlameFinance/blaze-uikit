@@ -1844,7 +1844,7 @@ var StyledLink = styled(Link$1)(templateObject_1$7 || (templateObject_1$7 = __ma
     return theme.mediaQueries.nav;
 });
 var Logo = function (_a) {
-    var isDark = _a.isDark, href = _a.href;
+    _a.isPushed; _a.togglePush; var isDark = _a.isDark, href = _a.href;
     var isAbsoluteUrl = href.startsWith("http");
     var innerLogo = (React.createElement(React.Fragment, null,
         React.createElement(Icon$o, { className: "mobile-icon" }),
@@ -2232,14 +2232,29 @@ var Menu = function (_a) {
     var _b;
     var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark; _a.toggleTheme; _a.langs; _a.setLang; _a.currentLang; _a.cakePriceUsd; var links = _a.links; _a.priceLink; var profile = _a.profile, children = _a.children;
     useMatchBreakpoints().isXl;
-    var showMenu = false;
-    var isPushed = false;
+    var _c = useState(false), isPushed = _c[0], setIsPushed = _c[1];
+    var _d = useState(false), showMenu = _d[0], setShowMenu = _d[1];
     var refPrevOffset = useRef(window.pageYOffset);
     useEffect(function () {
         var handleScroll = function () {
             var currentOffset = window.pageYOffset;
-            window.document.body.clientHeight === currentOffset + window.innerHeight;
+            var isBottomOfPage = window.document.body.clientHeight === currentOffset + window.innerHeight;
+            var isTopOfPage = currentOffset === 0;
             // Always show the menu when user reach the top
+            if (isTopOfPage) {
+                setShowMenu(true);
+            }
+            // Avoid triggering anything at the bottom because of layout shift
+            else if (!isBottomOfPage) {
+                if (currentOffset < refPrevOffset.current) {
+                    // Has scroll up
+                    setShowMenu(true);
+                }
+                else {
+                    // Has scroll down
+                    setShowMenu(false);
+                }
+            }
             refPrevOffset.current = currentOffset;
         };
         var throttledHandleScroll = throttle(handleScroll, 200);
@@ -2252,13 +2267,13 @@ var Menu = function (_a) {
     var homeLink = links.find(function (link) { return link.label === "Home"; });
     return (React.createElement(Wrapper, null,
         React.createElement(StyledNav, { showMenu: showMenu },
-            React.createElement(Logo, { isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
+            React.createElement(Logo, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
             React.createElement(Flex, null,
                 React.createElement(UserBlock, { account: account, login: login, logout: logout }),
                 profile && React.createElement(Avatar, { profile: profile }))),
         React.createElement(BodyWrapper, null,
             React.createElement(Inner, { isPushed: isPushed, showMenu: showMenu }, children),
-            React.createElement(MobileOnlyOverlay, { show: isPushed, onClick: function () { return null; }, role: "presentation" }))));
+            React.createElement(MobileOnlyOverlay, { show: isPushed, onClick: function () { return setIsPushed(false); }, role: "presentation" }))));
 };
 var templateObject_1$3, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
 

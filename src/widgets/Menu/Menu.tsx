@@ -75,8 +75,8 @@ const Menu: React.FC<NavProps> = ({
 }) => {
   const { isXl } = useMatchBreakpoints();
   const isMobile = isXl === false;
-  const showMenu=false;
-  const isPushed=false;
+  const [isPushed, setIsPushed] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
   const refPrevOffset = useRef(window.pageYOffset);
 
   useEffect(() => {
@@ -85,6 +85,19 @@ const Menu: React.FC<NavProps> = ({
       const isBottomOfPage = window.document.body.clientHeight === currentOffset + window.innerHeight;
       const isTopOfPage = currentOffset === 0;
       // Always show the menu when user reach the top
+      if (isTopOfPage) {
+        setShowMenu(true);
+      }
+      // Avoid triggering anything at the bottom because of layout shift
+      else if (!isBottomOfPage) {
+        if (currentOffset < refPrevOffset.current) {
+          // Has scroll up
+          setShowMenu(true);
+        } else {
+          // Has scroll down
+          setShowMenu(false);
+        }
+      }
       refPrevOffset.current = currentOffset;
     };
     const throttledHandleScroll = throttle(handleScroll, 200);
@@ -102,6 +115,8 @@ const Menu: React.FC<NavProps> = ({
     <Wrapper>
       <StyledNav showMenu={showMenu}>
         <Logo
+          isPushed={isPushed}
+          togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
           isDark={isDark}
           href={homeLink?.href ?? "/"}
         />
@@ -114,7 +129,7 @@ const Menu: React.FC<NavProps> = ({
         <Inner isPushed={isPushed} showMenu={showMenu}>
           {children}
         </Inner>
-        <MobileOnlyOverlay show={isPushed} onClick={() => null} role="presentation" />
+        <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
       </BodyWrapper>
     </Wrapper>
   );

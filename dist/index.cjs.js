@@ -1857,7 +1857,7 @@ var StyledLink = styled__default['default'](reactRouterDom.Link)(templateObject_
     return theme.mediaQueries.nav;
 });
 var Logo = function (_a) {
-    var isDark = _a.isDark, href = _a.href;
+    _a.isPushed; _a.togglePush; var isDark = _a.isDark, href = _a.href;
     var isAbsoluteUrl = href.startsWith("http");
     var innerLogo = (React__default['default'].createElement(React__default['default'].Fragment, null,
         React__default['default'].createElement(Icon$o, { className: "mobile-icon" }),
@@ -2245,14 +2245,29 @@ var Menu = function (_a) {
     var _b;
     var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark; _a.toggleTheme; _a.langs; _a.setLang; _a.currentLang; _a.cakePriceUsd; var links = _a.links; _a.priceLink; var profile = _a.profile, children = _a.children;
     useMatchBreakpoints().isXl;
-    var showMenu = false;
-    var isPushed = false;
+    var _c = React.useState(false), isPushed = _c[0], setIsPushed = _c[1];
+    var _d = React.useState(false), showMenu = _d[0], setShowMenu = _d[1];
     var refPrevOffset = React.useRef(window.pageYOffset);
     React.useEffect(function () {
         var handleScroll = function () {
             var currentOffset = window.pageYOffset;
-            window.document.body.clientHeight === currentOffset + window.innerHeight;
+            var isBottomOfPage = window.document.body.clientHeight === currentOffset + window.innerHeight;
+            var isTopOfPage = currentOffset === 0;
             // Always show the menu when user reach the top
+            if (isTopOfPage) {
+                setShowMenu(true);
+            }
+            // Avoid triggering anything at the bottom because of layout shift
+            else if (!isBottomOfPage) {
+                if (currentOffset < refPrevOffset.current) {
+                    // Has scroll up
+                    setShowMenu(true);
+                }
+                else {
+                    // Has scroll down
+                    setShowMenu(false);
+                }
+            }
             refPrevOffset.current = currentOffset;
         };
         var throttledHandleScroll = throttle__default['default'](handleScroll, 200);
@@ -2265,13 +2280,13 @@ var Menu = function (_a) {
     var homeLink = links.find(function (link) { return link.label === "Home"; });
     return (React__default['default'].createElement(Wrapper, null,
         React__default['default'].createElement(StyledNav, { showMenu: showMenu },
-            React__default['default'].createElement(Logo, { isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
+            React__default['default'].createElement(Logo, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(UserBlock, { account: account, login: login, logout: logout }),
                 profile && React__default['default'].createElement(Avatar, { profile: profile }))),
         React__default['default'].createElement(BodyWrapper, null,
             React__default['default'].createElement(Inner, { isPushed: isPushed, showMenu: showMenu }, children),
-            React__default['default'].createElement(MobileOnlyOverlay, { show: isPushed, onClick: function () { return null; }, role: "presentation" }))));
+            React__default['default'].createElement(MobileOnlyOverlay, { show: isPushed, onClick: function () { return setIsPushed(false); }, role: "presentation" }))));
 };
 var templateObject_1$3, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
 

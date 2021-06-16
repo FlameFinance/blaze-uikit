@@ -2246,7 +2246,7 @@ var Menu = function (_a) {
     var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark; _a.toggleTheme; _a.langs; _a.setLang; _a.currentLang; _a.cakePriceUsd; var links = _a.links; _a.priceLink; var profile = _a.profile, children = _a.children;
     useMatchBreakpoints().isXl;
     var _c = React.useState(false), isPushed = _c[0], setIsPushed = _c[1];
-    var _d = React.useState(false), showMenu = _d[0], setShowMenu = _d[1];
+    var _d = React.useState(true), showMenu = _d[0], setShowMenu = _d[1];
     var refPrevOffset = React.useRef(window.pageYOffset);
     React.useEffect(function () {
         var handleScroll = function () {

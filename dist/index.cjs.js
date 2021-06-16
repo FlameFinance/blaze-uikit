@@ -196,7 +196,7 @@ StyledButton.defaultProps = {
 };
 var templateObject_1$C;
 
-var Button$1 = function (_a) {
+var Button = function (_a) {
     var startIcon = _a.startIcon, endIcon = _a.endIcon, children = _a.children, external = _a.external, isLoading = _a.isLoading, disabled = _a.disabled, props = __rest(_a, ["startIcon", "endIcon", "children", "external", "isLoading", "disabled"]);
     var internalProps = external ? getExternalLinkProps() : {};
     var isDisabled = isLoading || disabled;
@@ -211,7 +211,7 @@ var Button$1 = function (_a) {
                 ml: "0.5rem",
             })));
 };
-Button$1.defaultProps = {
+Button.defaultProps = {
     variant: variants$1.PRIMARY,
     size: sizes$1.MD,
     external: false,
@@ -219,7 +219,7 @@ Button$1.defaultProps = {
     disabled: false,
 };
 
-var IconButton = styled__default['default'](Button$1)(templateObject_1$B || (templateObject_1$B = __makeTemplateObject(["\n  padding: 0;\n  width: ", ";\n"], ["\n  padding: 0;\n  width: ", ";\n"])), function (_a) {
+var IconButton = styled__default['default'](Button)(templateObject_1$B || (templateObject_1$B = __makeTemplateObject(["\n  padding: 0;\n  width: ", ";\n"], ["\n  padding: 0;\n  width: ", ";\n"])), function (_a) {
     var size = _a.size;
     return (size === "sm" ? "32px" : "48px");
 });
@@ -654,7 +654,7 @@ var ButtonMenu = function (_a) {
     })));
 };
 
-var InactiveButton = styled__default['default'](Button$1)(templateObject_1$w || (templateObject_1$w = __makeTemplateObject(["\n  background-color: transparent;\n  color: ", ";\n\n  &:hover:not(:disabled):not(:active) {\n    background-color: transparent;\n  }\n"], ["\n  background-color: transparent;\n  color: ", ";\n\n  &:hover:not(:disabled):not(:active) {\n    background-color: transparent;\n  }\n"])), function (_a) {
+var InactiveButton = styled__default['default'](Button)(templateObject_1$w || (templateObject_1$w = __makeTemplateObject(["\n  background-color: transparent;\n  color: ", ";\n\n  &:hover:not(:disabled):not(:active) {\n    background-color: transparent;\n  }\n"], ["\n  background-color: transparent;\n  color: ", ";\n\n  &:hover:not(:disabled):not(:active) {\n    background-color: transparent;\n  }\n"])), function (_a) {
     var theme = _a.theme, colorKey = _a.colorKey;
     return theme.colors[colorKey];
 });
@@ -663,7 +663,7 @@ var ButtonMenuItem = function (_a) {
     if (!isActive) {
         return (React__default['default'].createElement(InactiveButton, __assign({ forwardedAs: as, size: size, variant: "tertiary", colorKey: variant === variants$1.PRIMARY ? "primary" : "textSubtle" }, props)));
     }
-    return React__default['default'].createElement(Button$1, __assign({ as: as, size: size, variant: variant }, props));
+    return React__default['default'].createElement(Button, __assign({ as: as, size: size, variant: variant }, props));
 };
 var templateObject_1$w;
 
@@ -1981,7 +1981,7 @@ var localStorageKey = "accountStatus";
 var WalletCard = function (_a) {
     var login = _a.login, walletConfig = _a.walletConfig, onDismiss = _a.onDismiss, mb = _a.mb;
     var title = walletConfig.title, Icon = walletConfig.icon;
-    return (React__default['default'].createElement(Button$1, { fullWidth: true, variant: "tertiary", onClick: function () {
+    return (React__default['default'].createElement(Button, { fullWidth: true, variant: "tertiary", onClick: function () {
             login(walletConfig.connectorId);
             window.localStorage.setItem(localStorageKey, "1");
             onDismiss();
@@ -2037,7 +2037,7 @@ var AccountModal = function (_a) {
             React__default['default'].createElement(LinkExternal, { small: true, href: "https://bscscan.com/address/" + account, mr: "16px" }, "View on BscScan"),
             React__default['default'].createElement(CopyToClipboard, { toCopy: account }, "Copy Address")),
         React__default['default'].createElement(Flex, { justifyContent: "center" },
-            React__default['default'].createElement(Button$1, { size: "sm", variant: "secondary", onClick: function () {
+            React__default['default'].createElement(Button, { size: "sm", variant: "secondary", onClick: function () {
                     logout();
                     window.localStorage.removeItem(localStorageKey);
                     onDismiss();
@@ -2055,9 +2055,9 @@ var UserBlock = function (_a) {
     var account = _a.account, login = _a.login, logout = _a.logout;
     var _b = useWalletModal(login, logout, account), onPresentConnectModal = _b.onPresentConnectModal, onPresentAccountModal = _b.onPresentAccountModal;
     var accountEllipsis = account ? account.substring(0, 4) + "..." + account.substring(account.length - 4) : null;
-    return (React__default['default'].createElement("div", null, account ? (React__default['default'].createElement(Button$1, { size: "sm", variant: "tertiary", onClick: function () {
+    return (React__default['default'].createElement("div", null, account ? (React__default['default'].createElement(Button, { size: "sm", variant: "tertiary", onClick: function () {
             onPresentAccountModal();
-        } }, accountEllipsis)) : (React__default['default'].createElement(Button$1, { size: "sm", onClick: function () {
+        } }, accountEllipsis)) : (React__default['default'].createElement(Button, { size: "sm", onClick: function () {
             onPresentConnectModal();
         } }, "Connect"))));
 };
@@ -2279,9 +2279,9 @@ var templateObject_1$3, templateObject_2, templateObject_3, templateObject_4, te
 var ToastAction = function (_a) {
     var action = _a.action;
     if (action.url.startsWith("http")) {
-        return (React__default['default'].createElement(Button$1, __assign({ as: "a", size: "sm", href: action.url }, getExternalLinkProps()), action.text));
+        return (React__default['default'].createElement(Button, __assign({ as: "a", size: "sm", href: action.url }, getExternalLinkProps()), action.text));
     }
-    return (React__default['default'].createElement(Button$1, { as: reactRouterDom.Link, size: "sm", to: action.url }, action.text));
+    return (React__default['default'].createElement(Button, { as: reactRouterDom.Link, size: "sm", to: action.url }, action.text));
 };
 
 var types = {
@@ -2539,7 +2539,7 @@ exports.BinanceIcon = Icon$D;
 exports.BlockIcon = Icon$M;
 exports.Breadcrumbs = Breadcrumbs;
 exports.BunnyPlaceholderIcon = Icon$C;
-exports.Button = Button$1;
+exports.Button = Button;
 exports.ButtonMenu = ButtonMenu;
 exports.ButtonMenuItem = ButtonMenuItem;
 exports.CalculateIcon = Icon$A;

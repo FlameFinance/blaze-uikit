@@ -7,9 +7,7 @@ import { HamburgerIcon, HamburgerCloseIcon, LogoIcon as LogoWithText } from "./i
 import MenuButton from "./MenuButton";
 
 interface Props {
-  isPushed: boolean;
   isDark: boolean;
-  togglePush: () => void;
   href: string;
 }
 
@@ -31,7 +29,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href }) => {
+const Logo: React.FC<Props> = ({isDark, href }) => {
   const isAbsoluteUrl = href.startsWith("http");
   const innerLogo = (
     <>

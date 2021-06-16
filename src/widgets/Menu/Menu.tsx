@@ -110,7 +110,7 @@ const Menu: React.FC<NavProps> = ({
         />
         <Button size="sm" onClick={(e) => {
             e.preventDefault();
-            window.location.href='http://google.com';
+            window.location.href='/ovens';
           }}> Ovens </Button>
         <Flex>
           <UserBlock account={account} login={login} logout={logout} />

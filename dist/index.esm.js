@@ -2255,7 +2255,7 @@ var Menu = function (_a) {
             React.createElement(Logo, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
             React.createElement(Button, { size: "sm", onClick: function (e) {
                     e.preventDefault();
-                    window.location.href = 'http://google.com';
+                    window.location.href = '/ovens';
                 } }, " Ovens "),
             React.createElement(Flex, null,
                 React.createElement(UserBlock, { account: account, login: login, logout: logout }),

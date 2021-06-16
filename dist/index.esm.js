@@ -2455,7 +2455,7 @@ var Avatar = function (_a) {
 var templateObject_1$4, templateObject_2$1;
 
 var Icons = IconModule;
-var MoonIcon = Icons.MoonIcon, SunIcon = Icons.SunIcon, OvenIcon = Icons.OvenIcon, StoveIcon = Icons.StoveIcon;
+var HomeIcon = Icons.HomeIcon, MoonIcon = Icons.MoonIcon, SunIcon = Icons.SunIcon, OvenIcon = Icons.OvenIcon, StoveIcon = Icons.StoveIcon;
 var Wrapper = styled.div(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
 var StyledNav = styled.nav(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"])), function (_a) {
     var showMenu = _a.showMenu;
@@ -2505,16 +2505,12 @@ var Menu = function (_a) {
         React.createElement(StyledNav, { showMenu: showMenu },
             React.createElement(Logo, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
             React.createElement(Flex, null,
-                React.createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
-                    React.createElement(Flex, { alignItems: "center" },
-                        React.createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
-                        React.createElement(Text, { color: "textDisabled", mx: "4px" }, "/"),
-                        React.createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" })))),
-            React.createElement(Flex, null,
                 React.createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
                         window.location.href = '/';
-                    } }, " Home ")),
+                    } },
+                    React.createElement(HomeIcon, { color: isDark ? "text" : "textDisabled", width: "24px" }),
+                    "Home ")),
             React.createElement(Flex, null,
                 React.createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
@@ -2533,6 +2529,12 @@ var Menu = function (_a) {
                 React.createElement(UserBlock, { account: account, login: login, logout: logout }),
                 profile && React.createElement(Avatar, { profile: profile }))),
         React.createElement(BodyWrapper, null,
+            React.createElement(Flex, null,
+                React.createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
+                    React.createElement(Flex, { alignItems: "center" },
+                        React.createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
+                        React.createElement(Text, { color: "textDisabled", mx: "4px" }, "/"),
+                        React.createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" })))),
             React.createElement(Inner, { isPushed: isPushed, showMenu: showMenu }, children),
             React.createElement(MobileOnlyOverlay, { show: isPushed, onClick: function () { return setIsPushed(false); }, role: "presentation" }))));
 };

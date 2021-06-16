@@ -16,7 +16,7 @@ import Button from "../../components/Button/Button";
 import * as IconModule from "./icons";
 import { GiChickenOven } from "react-icons/gi";
 const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
-const { MoonIcon, SunIcon, OvenIcon, StoveIcon } = Icons;
+const { HomeIcon, MoonIcon, SunIcon, OvenIcon, StoveIcon } = Icons;
 
 const Wrapper = styled.div`
   position: relative;
@@ -114,21 +114,12 @@ const Menu: React.FC<NavProps> = ({
           href={homeLink?.href ?? "/"}
         />
         <Flex>
-          <Button variant="text" onClick={() => toggleTheme(!isDark)}>
-            <Flex alignItems="center">
-              <SunIcon color={isDark ? "textDisabled" : "text"} width="24px" />
-              <Text color="textDisabled" mx="4px">
-                /
-              </Text>
-              <MoonIcon color={isDark ? "text" : "textDisabled"} width="24px" />
-            </Flex>
-          </Button>
-        </Flex>
-        <Flex>
           <Button size="sm" onClick={(e) => {
               e.preventDefault();
               window.location.href='/';
-            }}> Home </Button> 
+            }}> 
+            <HomeIcon color={isDark ? "text" : "textDisabled"} width="24px" />
+            Home </Button> 
         </Flex>
         <Flex>
           <Button size="sm" onClick={(e) => {
@@ -150,9 +141,20 @@ const Menu: React.FC<NavProps> = ({
           <UserBlock account={account} login={login} logout={logout} />
           {profile && <Avatar profile={profile} />}
         </Flex>
-      </StyledNav>
+      </StyledNav>      
       <BodyWrapper>
-        <Inner isPushed={isPushed} showMenu={showMenu}>
+        <Flex>
+            <Button variant="text" onClick={() => toggleTheme(!isDark)}>
+              <Flex alignItems="center">
+                <SunIcon color={isDark ? "textDisabled" : "text"} width="24px" />
+                <Text color="textDisabled" mx="4px">
+                  /
+                </Text>
+                <MoonIcon color={isDark ? "text" : "textDisabled"} width="24px" />
+              </Flex>
+            </Button>
+          </Flex>        
+        <Inner isPushed={isPushed} showMenu={showMenu}>          
           {children}
         </Inner>
         <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />

@@ -5,7 +5,7 @@ import Overlay from "../../components/Overlay/Overlay";
 import { Flex } from "../../components/Flex";
 import { useMatchBreakpoints } from "../../hooks";
 import Logo from "./Logo";
-import PanelFooter from "./PanelFooter";
+import Panel from "./Panel";
 import UserBlock from "./UserBlock";
 import { NavProps } from "./types";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
@@ -16,9 +16,9 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-const StyledNav = styled.nav`
+const StyledNav = styled.nav<{ showMenu: boolean }>`
   position: fixed;
-  top: ${`-${MENU_HEIGHT}px`};
+  top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
   left: 0;
   transition: top 0.2s;
   display: flex;
@@ -76,6 +76,7 @@ const Menu: React.FC<NavProps> = ({
   const { isXl } = useMatchBreakpoints();
   const isMobile = isXl === false;
   const [isPushed, setIsPushed] = useState(!isMobile);
+  const [showMenu, setShowMenu] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
 
   useEffect(() => {
@@ -84,6 +85,19 @@ const Menu: React.FC<NavProps> = ({
       const isBottomOfPage = window.document.body.clientHeight === currentOffset + window.innerHeight;
       const isTopOfPage = currentOffset === 0;
       // Always show the menu when user reach the top
+      if (isTopOfPage) {
+        setShowMenu(true);
+      }
+      // Avoid triggering anything at the bottom because of layout shift
+      else if (!isBottomOfPage) {
+        if (currentOffset < refPrevOffset.current) {
+          // Has scroll up
+          setShowMenu(true);
+        } else {
+          // Has scroll down
+          setShowMenu(false);
+        }
+      }
       refPrevOffset.current = currentOffset;
     };
     const throttledHandleScroll = throttle(handleScroll, 200);
@@ -99,7 +113,7 @@ const Menu: React.FC<NavProps> = ({
 
   return (
     <Wrapper>
-      <StyledNav>
+      <StyledNav showMenu={showMenu}>
         <Logo
           isPushed={isPushed}
           togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
@@ -110,8 +124,12 @@ const Menu: React.FC<NavProps> = ({
           <UserBlock account={account} login={login} logout={logout} />
           {profile && <Avatar profile={profile} />}
         </Flex>
-        <PanelFooter          
+      </StyledNav>
+      <BodyWrapper>
+        <Panel
           isPushed={isPushed}
+          isMobile={isMobile}
+          showMenu={showMenu}
           isDark={isDark}
           toggleTheme={toggleTheme}
           langs={langs}
@@ -119,14 +137,14 @@ const Menu: React.FC<NavProps> = ({
           currentLang={currentLang}
           cakePriceUsd={cakePriceUsd}
           pushNav={setIsPushed}
-          priceLink={priceLink} />
-      </StyledNav>
-      <BodyWrapper>
-        <Inner isPushed={isPushed} showMenu={true}>
+          links={links}
+          priceLink={priceLink}
+        />
+        <Inner isPushed={isPushed} showMenu={showMenu}>
           {children}
         </Inner>
         <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
-      </BodyWrapper>         
+      </BodyWrapper>
     </Wrapper>
   );
 };

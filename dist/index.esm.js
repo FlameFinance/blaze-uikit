@@ -2412,6 +2412,28 @@ var links = [
         ],
     },
 ];
+var socials = [
+    {
+        label: "Telegram",
+        icon: "TelegramIcon",
+        items: [
+            {
+                label: "English",
+                href: "https://t.me/Flam3Finance",
+            },
+        ],
+    },
+    {
+        label: "Twitter",
+        icon: "TwitterIcon",
+        href: "https://twitter.com/flamefinance",
+    },
+    {
+        label: "Reddit",
+        icon: "RedditIcon",
+        href: "https://www.reddit.com/r/FlameFinance",
+    },
+];
 var MENU_HEIGHT = 64;
 var SIDEBAR_WIDTH_FULL = 240;
 var SIDEBAR_WIDTH_REDUCED = 56;
@@ -2486,11 +2508,12 @@ var MobileOnlyOverlay = styled(Overlay)(templateObject_6 || (templateObject_6 = 
     var theme = _a.theme;
     return theme.mediaQueries.nav;
 });
+var PriceLink = styled.a(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"])));
 var Menu = function (_a) {
-    var _b, _c;
-    var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme; _a.langs; _a.setLang; _a.currentLang; _a.cakePriceUsd; var links = _a.links; _a.priceLink; var profile = _a.profile, children = _a.children;
+    var _b;
+    var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme; _a.langs; _a.setLang; _a.currentLang; var cakePriceUsd = _a.cakePriceUsd, links = _a.links, priceLink = _a.priceLink, profile = _a.profile, children = _a.children;
     useMatchBreakpoints().isXl;
-    var _d = useState(false), isPushed = _d[0], setIsPushed = _d[1];
+    var _c = useState(false), isPushed = _c[0], setIsPushed = _c[1];
     var showMenu = true;
     var refPrevOffset = useRef(window.pageYOffset);
     useEffect(function () {
@@ -2511,12 +2534,6 @@ var Menu = function (_a) {
     return (React.createElement(Wrapper, null,
         React.createElement(StyledNav, { showMenu: showMenu },
             React.createElement(Logo, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
-            React.createElement(Flex, null,
-                React.createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
-                    React.createElement(Flex, { alignItems: "center" },
-                        React.createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
-                        React.createElement(Text, { color: "textDisabled", mx: "4px" }, "/"),
-                        React.createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" })))),
             React.createElement(Flex, null,
                 React.createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
@@ -2542,42 +2559,30 @@ var Menu = function (_a) {
                 React.createElement(UserBlock, { account: account, login: login, logout: logout }),
                 profile && React.createElement(Avatar, { profile: profile }))),
         React.createElement(StyledNavRel, { showMenu: showMenu },
-            React.createElement(Logo, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_c = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _c !== void 0 ? _c : "/" }),
+            cakePriceUsd ? (React.createElement(PriceLink, { href: priceLink, target: "_blank" },
+                React.createElement(Icon$M, { width: "24px", mr: "8px" }),
+                React.createElement(Text, { color: "textSubtle", bold: true }, "$" + cakePriceUsd.toFixed(3)))) : (React.createElement(Skeleton, { width: 80, height: 24 })),
+            React.createElement(Flex, null, socials.map(function (social, index) {
+                var Icon = Icons[social.icon];
+                var iconProps = { width: "24px", color: "textSubtle", style: { cursor: "pointer" } };
+                var mr = index < socials.length - 1 ? "8px" : 0;
+                if (social.items) {
+                    return (React.createElement(Dropdown, { key: social.label, position: "top", target: React.createElement(Icon, __assign({}, iconProps, { mr: mr })) }, social.items.map(function (item) { return (React.createElement(Link, { external: true, key: item.label, href: item.href, "aria-label": item.label, color: "textSubtle" }, item.label)); })));
+                }
+                return (React.createElement(Link, { external: true, key: social.label, href: social.href, "aria-label": social.label, mr: mr },
+                    React.createElement(Icon, __assign({}, iconProps))));
+            })),
             React.createElement(Flex, null,
                 React.createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
                     React.createElement(Flex, { alignItems: "center" },
                         React.createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
                         React.createElement(Text, { color: "textDisabled", mx: "4px" }, "/"),
-                        React.createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" })))),
-            React.createElement(Flex, null,
-                React.createElement(Button, { size: "sm", onClick: function (e) {
-                        e.preventDefault();
-                        window.location.href = '/';
-                    } },
-                    React.createElement(HomeIcon, { color: isDark ? "text" : "textDisabled", width: "24px" }),
-                    "Home ")),
-            React.createElement(Flex, null,
-                React.createElement(Button, { size: "sm", onClick: function (e) {
-                        e.preventDefault();
-                        window.location.href = '/stoves';
-                    } },
-                    React.createElement(StoveIcon, { color: isDark ? "text" : "textDisabled", width: "24px" }),
-                    "Stoves ")),
-            React.createElement(Flex, null,
-                React.createElement(Button, { size: "sm", onClick: function (e) {
-                        e.preventDefault();
-                        window.location.href = '/ovens';
-                    } },
-                    React.createElement(OvenIcon, { color: isDark ? "text" : "textDisabled", width: "24px" }),
-                    "Ovens ")),
-            React.createElement(Flex, null,
-                React.createElement(UserBlock, { account: account, login: login, logout: logout }),
-                profile && React.createElement(Avatar, { profile: profile }))),
+                        React.createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" }))))),
         React.createElement(BodyWrapper, null,
             React.createElement(Inner, { isPushed: isPushed, showMenu: showMenu }, children),
             React.createElement(MobileOnlyOverlay, { show: isPushed, onClick: function () { return setIsPushed(false); }, role: "presentation" }))));
 };
-var templateObject_1$3, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6;
+var templateObject_1$3, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7;
 
 var ToastAction = function (_a) {
     var action = _a.action;

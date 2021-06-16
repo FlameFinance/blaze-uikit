@@ -1,14 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import throttle from "lodash/throttle";
-import { SvgProps } from "../../components/Svg";
+import { PancakeRoundIcon, CogIcon, SvgProps } from "../../components/Svg";
 import Overlay from "../../components/Overlay/Overlay";
 import { Flex } from "../../components/Flex";
 import { useMatchBreakpoints } from "../../hooks";
 import Logo from "./Logo";
 import Text from "../../components/Text/Text";
 import Panel from "./Panel";
+import Link from "../../components/Link/Link";
 import UserBlock from "./UserBlock";
+import Dropdown from "../../components/Dropdown/Dropdown";
+import { socials, MENU_ENTRY_HEIGHT } from "./config";
+import Skeleton from "../../components/Skeleton/Skeleton";
 import { NavProps } from "./types";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 import Avatar from "./Avatar";
@@ -79,7 +83,18 @@ const MobileOnlyOverlay = styled(Overlay)`
     display: none;
   }
 `;
-
+const PriceLink = styled.a`
+  display: flex;
+  align-items: center;
+  svg {
+    transition: transform 0.3s;
+  }
+  :hover {
+    svg {
+      transform: scale(1.2);
+    }
+  }
+`;
 const Menu: React.FC<NavProps> = ({
   account,
   login,
@@ -130,17 +145,6 @@ const Menu: React.FC<NavProps> = ({
           href={homeLink?.href ?? "/"}
         />
         <Flex>
-          <Button variant="text" onClick={() => toggleTheme(!isDark)}>
-            <Flex alignItems="center">
-              <SunIcon color={isDark ? "textDisabled" : "text"} width="24px" />
-              <Text color="textDisabled" mx="4px">
-                /
-              </Text>
-              <MoonIcon color={isDark ? "text" : "textDisabled"} width="24px" />
-            </Flex>
-          </Button>
-        </Flex>
-        <Flex>
           <Button size="sm" onClick={(e) => {
               e.preventDefault();
               window.location.href='/';
@@ -170,12 +174,37 @@ const Menu: React.FC<NavProps> = ({
         </Flex>
       </StyledNav>
       <StyledNavRel showMenu={showMenu}>
-        <Logo
-          isPushed={isPushed}
-          togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
-          isDark={isDark}
-          href={homeLink?.href ?? "/"}
-        />
+        {cakePriceUsd ? (
+            <PriceLink href={priceLink} target="_blank">
+              <PancakeRoundIcon width="24px" mr="8px" />
+              <Text color="textSubtle" bold>{`$${cakePriceUsd.toFixed(3)}`}</Text>
+            </PriceLink>
+          ) : (
+            <Skeleton width={80} height={24} />
+          )}
+          <Flex>
+            {socials.map((social, index) => {
+              const Icon = Icons[social.icon];
+              const iconProps = { width: "24px", color: "textSubtle", style: { cursor: "pointer" } };
+              const mr = index < socials.length - 1 ? "8px" : 0;
+              if (social.items) {
+                return (
+                  <Dropdown key={social.label} position="top" target={<Icon {...iconProps} mr={mr} />}>
+                    {social.items.map((item) => (
+                      <Link external key={item.label} href={item.href} aria-label={item.label} color="textSubtle">
+                        {item.label}
+                      </Link>
+                    ))}
+                  </Dropdown>
+                );
+              }
+              return (
+                <Link external key={social.label} href={social.href} aria-label={social.label} mr={mr}>
+                  <Icon {...iconProps} />
+                </Link>
+              );
+            })}
+          </Flex>        
         <Flex>
           <Button variant="text" onClick={() => toggleTheme(!isDark)}>
             <Flex alignItems="center">
@@ -187,34 +216,7 @@ const Menu: React.FC<NavProps> = ({
             </Flex>
           </Button>
         </Flex>
-        <Flex>
-          <Button size="sm" onClick={(e) => {
-              e.preventDefault();
-              window.location.href='/';
-            }}> 
-            <HomeIcon color={isDark ? "text" : "textDisabled"} width="24px" />
-            Home </Button> 
-        </Flex>
-        <Flex>
-          <Button size="sm" onClick={(e) => {
-              e.preventDefault();
-              window.location.href='/stoves';
-            }}> 
-            <StoveIcon color={isDark ? "text" : "textDisabled"} width="24px" />
-            Stoves </Button> 
-        </Flex>        
-        <Flex>
-          <Button size="sm" onClick={(e) => {
-              e.preventDefault();
-              window.location.href='/ovens';
-            }}> 
-            <OvenIcon color={isDark ? "text" : "textDisabled"} width="24px" />
-            Ovens </Button> 
-        </Flex>
-        <Flex>
-          <UserBlock account={account} login={login} logout={logout} />
-          {profile && <Avatar profile={profile} />}
-        </Flex>
+        
       </StyledNavRel>      
       <BodyWrapper>
         <Inner isPushed={isPushed} showMenu={showMenu}>

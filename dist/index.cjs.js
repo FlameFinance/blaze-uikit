@@ -2518,6 +2518,12 @@ var Menu = function (_a) {
         React__default['default'].createElement(StyledNav, { showMenu: showMenu },
             React__default['default'].createElement(Logo, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
             React__default['default'].createElement(Flex, null,
+                React__default['default'].createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
+                    React__default['default'].createElement(Flex, { alignItems: "center" },
+                        React__default['default'].createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
+                        React__default['default'].createElement(Text, { color: "textDisabled", mx: "4px" }, "/"),
+                        React__default['default'].createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" })))),
+            React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
                         window.location.href = '/';
@@ -2536,12 +2542,6 @@ var Menu = function (_a) {
                     } },
                     React__default['default'].createElement(OvenIcon, { color: isDark ? "text" : "textDisabled", width: "24px" }),
                     "Ovens ")),
-            React__default['default'].createElement(Flex, null,
-                React__default['default'].createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
-                    React__default['default'].createElement(Flex, { alignItems: "center" },
-                        React__default['default'].createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
-                        React__default['default'].createElement(Text, { color: "textDisabled", mx: "4px" }, "/"),
-                        React__default['default'].createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" })))),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(UserBlock, { account: account, login: login, logout: logout }),
                 profile && React__default['default'].createElement(Avatar, { profile: profile }))),

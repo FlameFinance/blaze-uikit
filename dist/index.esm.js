@@ -2505,6 +2505,12 @@ var Menu = function (_a) {
         React.createElement(StyledNav, { showMenu: showMenu },
             React.createElement(Logo, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
             React.createElement(Flex, null,
+                React.createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
+                    React.createElement(Flex, { alignItems: "center" },
+                        React.createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
+                        React.createElement(Text, { color: "textDisabled", mx: "4px" }, "/"),
+                        React.createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" })))),
+            React.createElement(Flex, null,
                 React.createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
                         window.location.href = '/';
@@ -2523,12 +2529,6 @@ var Menu = function (_a) {
                     } },
                     React.createElement(OvenIcon, { color: isDark ? "text" : "textDisabled", width: "24px" }),
                     "Ovens ")),
-            React.createElement(Flex, null,
-                React.createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
-                    React.createElement(Flex, { alignItems: "center" },
-                        React.createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
-                        React.createElement(Text, { color: "textDisabled", mx: "4px" }, "/"),
-                        React.createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" })))),
             React.createElement(Flex, null,
                 React.createElement(UserBlock, { account: account, login: login, logout: logout }),
                 profile && React.createElement(Avatar, { profile: profile }))),

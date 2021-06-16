@@ -114,6 +114,17 @@ const Menu: React.FC<NavProps> = ({
           href={homeLink?.href ?? "/"}
         />
         <Flex>
+          <Button variant="text" onClick={() => toggleTheme(!isDark)}>
+            <Flex alignItems="center">
+              <SunIcon color={isDark ? "textDisabled" : "text"} width="24px" />
+              <Text color="textDisabled" mx="4px">
+                /
+              </Text>
+              <MoonIcon color={isDark ? "text" : "textDisabled"} width="24px" />
+            </Flex>
+          </Button>
+        </Flex>
+        <Flex>
           <Button size="sm" onClick={(e) => {
               e.preventDefault();
               window.location.href='/';
@@ -134,17 +145,6 @@ const Menu: React.FC<NavProps> = ({
             }}> 
             <OvenIcon color={isDark ? "text" : "textDisabled"} width="24px" />
             Ovens </Button> 
-        </Flex>
-        <Flex>
-          <Button variant="text" onClick={() => toggleTheme(!isDark)}>
-            <Flex alignItems="center">
-              <SunIcon color={isDark ? "textDisabled" : "text"} width="24px" />
-              <Text color="textDisabled" mx="4px">
-                /
-              </Text>
-              <MoonIcon color={isDark ? "text" : "textDisabled"} width="24px" />
-            </Flex>
-          </Button>
         </Flex>
         <Flex>
           <UserBlock account={account} login={login} logout={logout} />

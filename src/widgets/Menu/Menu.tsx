@@ -39,7 +39,23 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   z-index: 20;
   transform: translate3d(0, 0, 0);
 `;
-
+const StyledNavRel = styled.nav<{ showMenu: boolean }>`
+  position: relative;
+  top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
+  left: 0;
+  transition: top 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 8px;
+  padding-right: 16px;
+  width: 100%;
+  height: ${MENU_HEIGHT}px;
+  background-color: ${({ theme }) => theme.nav.background};
+  border-bottom: solid 2px rgba(133, 133, 133, 0.1);
+  z-index: 20;
+  transform: translate3d(0, 0, 0);
+`;
 const BodyWrapper = styled.div`
   position: relative;
   display: flex;
@@ -153,7 +169,7 @@ const Menu: React.FC<NavProps> = ({
           {profile && <Avatar profile={profile} />}
         </Flex>
       </StyledNav>
-      <StyledNav showMenu={showMenu}>
+      <StyledNavRel showMenu={showMenu}>
         <Logo
           isPushed={isPushed}
           togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
@@ -199,7 +215,7 @@ const Menu: React.FC<NavProps> = ({
           <UserBlock account={account} login={login} logout={logout} />
           {profile && <Avatar profile={profile} />}
         </Flex>
-      </StyledNav>      
+      </StyledNavRel>      
       <BodyWrapper>
         <Inner isPushed={isPushed} showMenu={showMenu}>
           {children}

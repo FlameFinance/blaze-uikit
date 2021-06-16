@@ -1,22 +1,34 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import throttle from "lodash/throttle";
+import { SvgProps } from "../../components/Svg";
 import Overlay from "../../components/Overlay/Overlay";
 import { Flex } from "../../components/Flex";
 import { useMatchBreakpoints } from "../../hooks";
 import Logo from "./Logo";
+import Text from "../../components/Text/Text";
 import Panel from "./Panel";
 import UserBlock from "./UserBlock";
 import { NavProps } from "./types";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 import Avatar from "./Avatar";
 import Button from "../../components/Button/Button";
+import * as IconModule from "./icons";
+import { GiChickenOven } from "react-icons/gi";
+const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
+const { MoonIcon, SunIcon, OvenIcon, StoveIcon } = Icons;
 
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
 `;
-
+const SettingsEntry = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: ${MENU_ENTRY_HEIGHT}px;
+  padding: 0 8px;
+`;
 const StyledNav = styled.nav<{ showMenu: boolean }>`
   position: fixed;
   top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
@@ -118,17 +130,35 @@ const Menu: React.FC<NavProps> = ({
           <Button size="sm" onClick={(e) => {
               e.preventDefault();
               window.location.href='/stoves';
-            }}> Stoves </Button> 
+            }}> 
+            <StoveIcon color={isDark ? "text" : "textDisabled"} width="24px" />
+            Stoves </Button> 
         </Flex>        
         <Flex>
           <Button size="sm" onClick={(e) => {
               e.preventDefault();
               window.location.href='/ovens';
-            }}> Ovens </Button> 
+            }}> 
+            <OvenIcon color={isDark ? "text" : "textDisabled"} width="24px" />
+            Ovens </Button> 
         </Flex>
         <Flex>
           <UserBlock account={account} login={login} logout={logout} />
           {profile && <Avatar profile={profile} />}
+        </Flex>
+        <Flex>
+          <SettingsEntry>
+          <Button variant="text" onClick={() => toggleTheme(!isDark)}>
+            <Flex alignItems="center">
+              <SunIcon color={isDark ? "textDisabled" : "text"} width="24px" />
+              <Text color="textDisabled" mx="4px">
+                /
+              </Text>
+              <MoonIcon color={isDark ? "text" : "textDisabled"} width="24px" />
+            </Flex>
+          </Button>
+        </SettingsEntry>
+
         </Flex>
       </StyledNav>
       <BodyWrapper>

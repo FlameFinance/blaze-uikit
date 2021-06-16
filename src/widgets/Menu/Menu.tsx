@@ -136,10 +136,6 @@ const Menu: React.FC<NavProps> = ({
             Ovens </Button> 
         </Flex>
         <Flex>
-          <UserBlock account={account} login={login} logout={logout} />
-          {profile && <Avatar profile={profile} />}
-        </Flex>
-        <Flex>
           <Button variant="text" onClick={() => toggleTheme(!isDark)}>
             <Flex alignItems="center">
               <SunIcon color={isDark ? "textDisabled" : "text"} width="24px" />
@@ -149,6 +145,10 @@ const Menu: React.FC<NavProps> = ({
               <MoonIcon color={isDark ? "text" : "textDisabled"} width="24px" />
             </Flex>
           </Button>
+        </Flex>
+        <Flex>
+          <UserBlock account={account} login={login} logout={logout} />
+          {profile && <Avatar profile={profile} />}
         </Flex>
       </StyledNav>
       <BodyWrapper>

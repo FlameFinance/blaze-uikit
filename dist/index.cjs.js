@@ -2490,7 +2490,7 @@ var Avatar = function (_a) {
 var templateObject_1$4, templateObject_2$1;
 
 var Icons = IconModule;
-var HomeIcon = Icons.HomeIcon, MoonIcon = Icons.MoonIcon, SunIcon = Icons.SunIcon, FarmIcon = Icons.FarmIcon, PoolIcon = Icons.PoolIcon;
+var HomeIcon = Icons.HomeIcon, MoonIcon = Icons.MoonIcon, SunIcon = Icons.SunIcon; Icons.StoveIcon; Icons.as; var FarmIcon = Icons.FarmIcon; Icons.OvenIcon; Icons.as; var PoolIcon = Icons.PoolIcon;
 var Wrapper = styled__default['default'].div(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
 var StyledNav = styled__default['default'].nav(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"])), function (_a) {
     var showMenu = _a.showMenu;
@@ -2554,24 +2554,24 @@ var Menu = function (_a) {
                         e.preventDefault();
                         window.location.href = '/';
                     } },
-                    React__default['default'].createElement(HomeIcon, { color: "textSubtle", width: "24px" }),
-                    React__default['default'].createElement(Text, { color: "textSubtle" }, "Home"),
+                    React__default['default'].createElement(HomeIcon, { color: isDark ? "textSubtle" : "textDisabled", width: "24px" }),
+                    React__default['default'].createElement(Text, { color: isDark ? "textSubtle" : "textDisabled" }, "Home"),
                     " ")),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
                         window.location.href = '/stoves';
                     } },
-                    React__default['default'].createElement(FarmIcon, { color: "textSubtle", width: "24px" }),
-                    React__default['default'].createElement(Text, { color: "textSubtle" }, "Stoves"),
+                    React__default['default'].createElement(FarmIcon, { color: isDark ? "textSubtle" : "textDisabled", width: "24px" }),
+                    React__default['default'].createElement(Text, { color: isDark ? "textSubtle" : "textDisabled" }, "Stoves"),
                     " ")),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
                         window.location.href = '/ovens';
                     } },
-                    React__default['default'].createElement(PoolIcon, { color: "textSubtle", width: "24px" }),
-                    React__default['default'].createElement(Text, { color: "textSubtle" }, "Ovens"),
+                    React__default['default'].createElement(PoolIcon, { color: isDark ? "textSubtle" : "textDisabled", width: "24px" }),
+                    React__default['default'].createElement(Text, { color: isDark ? "textSubtle" : "textDisabled" }, "Ovens"),
                     " ")),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(UserBlock, { account: account, login: login, logout: logout }),

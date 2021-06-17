@@ -20,7 +20,7 @@ import Button from "../../components/Button/Button";
 import * as IconModule from "./icons";
 import { GiChickenOven } from "react-icons/gi";
 const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
-const { HomeIcon, MoonIcon, SunIcon, FarmIcon, PoolIcon } = Icons;
+const { HomeIcon, MoonIcon, SunIcon, StoveIcon as FarmIcon, OvenIcon as PoolIcon } = Icons;
 
 const Wrapper = styled.div`
   position: relative;
@@ -169,24 +169,24 @@ const Menu: React.FC<NavProps> = ({
               e.preventDefault();
               window.location.href='/';
             }}> 
-            <HomeIcon color={"textSubtle"} width="24px" />
-            <Text color = {"textSubtle"}>Home</Text> </Button> 
+            <HomeIcon color={isDark ? "textSubtle" : "textDisabled"} width="24px" />
+            <Text color = {isDark ? "textSubtle" : "textDisabled"}>Home</Text> </Button> 
         </Flex>
         <Flex>
           <Button size="sm" onClick={(e) => {
               e.preventDefault();
               window.location.href='/stoves';
             }}> 
-            <FarmIcon color={"textSubtle"} width="24px" />
-            <Text color = {"textSubtle"}>Stoves</Text> </Button> 
+            <FarmIcon color={isDark ? "textSubtle" : "textDisabled"} width="24px" />
+            <Text color = {isDark ? "textSubtle" : "textDisabled"}>Stoves</Text> </Button> 
         </Flex>        
         <Flex>
           <Button size="sm" onClick={(e) => {
               e.preventDefault();
               window.location.href='/ovens';
             }}> 
-            <PoolIcon color={"textSubtle"} width="24px" />
-            <Text color = {"textSubtle"}>Ovens</Text> </Button> 
+            <PoolIcon color={isDark ? "textSubtle" : "textDisabled"} width="24px" />
+            <Text color = {isDark ? "textSubtle" : "textDisabled"}>Ovens</Text> </Button> 
         </Flex>
         <Flex>
           <UserBlock account={account} login={login} logout={logout} />

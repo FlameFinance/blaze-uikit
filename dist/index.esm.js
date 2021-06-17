@@ -2477,7 +2477,7 @@ var Avatar = function (_a) {
 var templateObject_1$4, templateObject_2$1;
 
 var Icons = IconModule;
-var HomeIcon = Icons.HomeIcon, MoonIcon = Icons.MoonIcon, SunIcon = Icons.SunIcon, OvenIcon = Icons.OvenIcon, StoveIcon = Icons.StoveIcon;
+var HomeIcon = Icons.HomeIcon, MoonIcon = Icons.MoonIcon, SunIcon = Icons.SunIcon, FarmIcon = Icons.FarmIcon, PoolIcon = Icons.PoolIcon;
 var Wrapper = styled.div(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
 var StyledNav = styled.nav(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"])), function (_a) {
     var showMenu = _a.showMenu;
@@ -2493,7 +2493,7 @@ var StyledNavRel = styled.nav(templateObject_3 || (templateObject_3 = __makeTemp
     var theme = _a.theme;
     return theme.nav.background;
 });
-var Socials = styled.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding-left: 16px;\n  margin-right: 16px;\n  width: 100%;\n  z-index: 20;\n  position: relative;\n\n"], ["\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding-left: 16px;\n  margin-right: 16px;\n  width: 100%;\n  z-index: 20;\n  position: relative;\n\n"])));
+var Socials = styled.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding-left: 16px;\n  float: right;\n  padding-right: 16px;\n  width: 100%;\n  z-index: 20;\n  position: relative;\n\n"], ["\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding-left: 16px;\n  float: right;\n  padding-right: 16px;\n  width: 100%;\n  z-index: 20;\n  position: relative;\n\n"])));
 var BodyWrapper = styled.div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n"], ["\n  position: relative;\n  display: flex;\n"])));
 var Inner = styled.div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"], ["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"])), function (_a) {
     var showMenu = _a.showMenu;
@@ -2540,22 +2540,31 @@ var Menu = function (_a) {
                         e.preventDefault();
                         window.location.href = '/';
                     } },
-                    React.createElement(HomeIcon, { color: "textSubtle", width: "24px" }),
-                    "Home ")),
+                    React.createElement(Text, { color: "textSubtle" },
+                        " ",
+                        React.createElement(HomeIcon, { width: "24px" }),
+                        "Homes"),
+                    " ")),
             React.createElement(Flex, null,
                 React.createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
                         window.location.href = '/stoves';
                     } },
-                    React.createElement(StoveIcon, { color: "textSubtle", width: "24px" }),
-                    "Stoves ")),
+                    React.createElement(Text, { color: "textSubtle" },
+                        " ",
+                        React.createElement(FarmIcon, { width: "24px" }),
+                        "Stoves"),
+                    " ")),
             React.createElement(Flex, null,
                 React.createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
                         window.location.href = '/ovens';
                     } },
-                    React.createElement(OvenIcon, { color: "textSubtle", width: "24px" }),
-                    "Ovens ")),
+                    React.createElement(Text, { color: "textSubtle" },
+                        " ",
+                        React.createElement(PoolIcon, { width: "24px" }),
+                        "Ovens"),
+                    " ")),
             React.createElement(Flex, null,
                 React.createElement(UserBlock, { account: account, login: login, logout: logout }),
                 profile && React.createElement(Avatar, { profile: profile }))),

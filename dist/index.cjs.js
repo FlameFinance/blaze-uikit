@@ -2490,7 +2490,7 @@ var Avatar = function (_a) {
 var templateObject_1$4, templateObject_2$1;
 
 var Icons = IconModule;
-var HomeIcon = Icons.HomeIcon, MoonIcon = Icons.MoonIcon, SunIcon = Icons.SunIcon, OvenIcon = Icons.OvenIcon, StoveIcon = Icons.StoveIcon;
+var HomeIcon = Icons.HomeIcon, MoonIcon = Icons.MoonIcon, SunIcon = Icons.SunIcon, FarmIcon = Icons.FarmIcon, PoolIcon = Icons.PoolIcon;
 var Wrapper = styled__default['default'].div(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
 var StyledNav = styled__default['default'].nav(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"])), function (_a) {
     var showMenu = _a.showMenu;
@@ -2506,7 +2506,7 @@ var StyledNavRel = styled__default['default'].nav(templateObject_3 || (templateO
     var theme = _a.theme;
     return theme.nav.background;
 });
-var Socials = styled__default['default'].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding-left: 16px;\n  margin-right: 16px;\n  width: 100%;\n  z-index: 20;\n  position: relative;\n\n"], ["\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding-left: 16px;\n  margin-right: 16px;\n  width: 100%;\n  z-index: 20;\n  position: relative;\n\n"])));
+var Socials = styled__default['default'].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding-left: 16px;\n  float: right;\n  padding-right: 16px;\n  width: 100%;\n  z-index: 20;\n  position: relative;\n\n"], ["\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding-left: 16px;\n  float: right;\n  padding-right: 16px;\n  width: 100%;\n  z-index: 20;\n  position: relative;\n\n"])));
 var BodyWrapper = styled__default['default'].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n"], ["\n  position: relative;\n  display: flex;\n"])));
 var Inner = styled__default['default'].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"], ["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"])), function (_a) {
     var showMenu = _a.showMenu;
@@ -2553,22 +2553,31 @@ var Menu = function (_a) {
                         e.preventDefault();
                         window.location.href = '/';
                     } },
-                    React__default['default'].createElement(HomeIcon, { color: "textSubtle", width: "24px" }),
-                    "Home ")),
+                    React__default['default'].createElement(Text, { color: "textSubtle" },
+                        " ",
+                        React__default['default'].createElement(HomeIcon, { width: "24px" }),
+                        "Homes"),
+                    " ")),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
                         window.location.href = '/stoves';
                     } },
-                    React__default['default'].createElement(StoveIcon, { color: "textSubtle", width: "24px" }),
-                    "Stoves ")),
+                    React__default['default'].createElement(Text, { color: "textSubtle" },
+                        " ",
+                        React__default['default'].createElement(FarmIcon, { width: "24px" }),
+                        "Stoves"),
+                    " ")),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
                         window.location.href = '/ovens';
                     } },
-                    React__default['default'].createElement(OvenIcon, { color: "textSubtle", width: "24px" }),
-                    "Ovens ")),
+                    React__default['default'].createElement(Text, { color: "textSubtle" },
+                        " ",
+                        React__default['default'].createElement(PoolIcon, { width: "24px" }),
+                        "Ovens"),
+                    " ")),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(UserBlock, { account: account, login: login, logout: logout }),
                 profile && React__default['default'].createElement(Avatar, { profile: profile }))),

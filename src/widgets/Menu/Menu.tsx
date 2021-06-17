@@ -20,7 +20,7 @@ import Button from "../../components/Button/Button";
 import * as IconModule from "./icons";
 import { GiChickenOven } from "react-icons/gi";
 const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
-const { HomeIcon, MoonIcon, SunIcon, OvenIcon, StoveIcon } = Icons;
+const { HomeIcon, MoonIcon, SunIcon, FarmIcon, PoolIcon } = Icons;
 
 const Wrapper = styled.div`
   position: relative;
@@ -64,7 +64,8 @@ const Socials = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding-left: 16px;
-  margin-right: 16px;
+  float: right;
+  padding-right: 16px;
   width: 100%;
   z-index: 20;
   position: relative;
@@ -159,24 +160,21 @@ const Menu: React.FC<NavProps> = ({
               e.preventDefault();
               window.location.href='/';
             }}> 
-            <HomeIcon color={"textSubtle"} width="24px" />
-            Home </Button> 
+            <Text color = {"textSubtle"}> <HomeIcon width="24px" />Homes</Text> </Button> 
         </Flex>
         <Flex>
           <Button size="sm" onClick={(e) => {
               e.preventDefault();
               window.location.href='/stoves';
             }}> 
-            <StoveIcon color={"textSubtle"} width="24px" />
-            Stoves </Button> 
+            <Text color = {"textSubtle"}> <FarmIcon width="24px" />Stoves</Text> </Button> 
         </Flex>        
         <Flex>
           <Button size="sm" onClick={(e) => {
               e.preventDefault();
               window.location.href='/ovens';
             }}> 
-            <OvenIcon color={"textSubtle"} width="24px" />
-            Ovens </Button> 
+            <Text color = {"textSubtle"}> <PoolIcon width="24px" />Ovens</Text> </Button> 
         </Flex>
         <Flex>
           <UserBlock account={account} login={login} logout={logout} />

@@ -2055,13 +2055,15 @@ var Icon$9 = function (props) {
 };
 
 var Icon$8 = function (props) {
+    var color = props.color;
     return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 24 24" }, props),
-        React__default['default'].createElement(gi.GiCampCookingPot, { color: "transparent", size: '24px' })));
+        React__default['default'].createElement(gi.GiCampCookingPot, { color: color, size: '24px' })));
 };
 
 var Icon$7 = function (props) {
+    var color = props.color;
     return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 24 24" }, props),
-        React__default['default'].createElement(cg.CgSmartHomeCooker, { color: "transparent", size: '24px' })));
+        React__default['default'].createElement(cg.CgSmartHomeCooker, { color: color, size: '24px' })));
 };
 
 var IconModule = /*#__PURE__*/Object.freeze({

@@ -5,9 +5,10 @@ import { CgSmartHomeCooker } from "react-icons/cg";
 import { GiCampCookingPot } from "react-icons/gi";
 
 const Icon: React.FC<SvgProps> = (props) => {
+  const { color } = props;
   return (
     <Svg viewBox="0 0 24 24" {...props}>
-        <CgSmartHomeCooker color="transparent" size='24px' />
+        <CgSmartHomeCooker color={color} size='24px' />
     </Svg>    
   );
 };

@@ -2493,7 +2493,7 @@ var StyledNavRel = styled.nav(templateObject_3 || (templateObject_3 = __makeTemp
     var theme = _a.theme;
     return theme.nav.background;
 });
-var Socials = styled.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding-left: 16px;\n  padding-right: 32px;\n  width: 100%;\n  z-index: 20;\n  position: relative;\n\n"], ["\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding-left: 16px;\n  padding-right: 32px;\n  width: 100%;\n  z-index: 20;\n  position: relative;\n\n"])));
+var Socials = styled.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding-left: 16px;\n  margin-right: 16px;\n  width: 100%;\n  z-index: 20;\n  position: relative;\n\n"], ["\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding-left: 16px;\n  margin-right: 16px;\n  width: 100%;\n  z-index: 20;\n  position: relative;\n\n"])));
 var BodyWrapper = styled.div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n"], ["\n  position: relative;\n  display: flex;\n"])));
 var Inner = styled.div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"], ["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"])), function (_a) {
     var showMenu = _a.showMenu;

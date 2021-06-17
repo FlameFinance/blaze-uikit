@@ -64,7 +64,7 @@ const Socials = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding-left: 16px;
-  padding-right: 32px;
+  margin-right: 16px;
   width: 100%;
   z-index: 20;
   position: relative;

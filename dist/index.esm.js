@@ -2543,24 +2543,24 @@ var Menu = function (_a) {
                         e.preventDefault();
                         window.location.href = '/';
                     } },
-                    React.createElement(HomeIcon, { color: isDark ? "textSubtle" : "textDisabled", width: "24px" }),
-                    React.createElement(Text, { color: isDark ? "textSubtle" : "textDisabled" }, "Home"),
+                    React.createElement(HomeIcon, { color: "white", width: "24px" }),
+                    React.createElement(Text, { color: "white" }, "Home"),
                     " ")),
             React.createElement(Flex, null,
                 React.createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
                         window.location.href = '/stoves';
                     } },
-                    React.createElement(StoveIcon, { color: isDark ? "textSubtle" : "textDisabled", width: "24px" }),
-                    React.createElement(Text, { color: isDark ? "textSubtle" : "textDisabled" }, "Stoves"),
+                    React.createElement(StoveIcon, { color: "white", width: "24px" }),
+                    React.createElement(Text, { color: "white" }, "Stoves"),
                     " ")),
             React.createElement(Flex, null,
                 React.createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
                         window.location.href = '/ovens';
                     } },
-                    React.createElement(OvenIcon, { color: isDark ? "textSubtle" : "textDisabled", width: "24px" }),
-                    React.createElement(Text, { color: isDark ? "textSubtle" : "textDisabled" }, "Ovens"),
+                    React.createElement(OvenIcon, { color: "white", width: "24px" }),
+                    React.createElement(Text, { color: "white" }, "Ovens"),
                     " ")),
             React.createElement(Flex, null,
                 React.createElement(UserBlock, { account: account, login: login, logout: logout }),

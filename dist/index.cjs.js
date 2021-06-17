@@ -2556,24 +2556,24 @@ var Menu = function (_a) {
                         e.preventDefault();
                         window.location.href = '/';
                     } },
-                    React__default['default'].createElement(HomeIcon, { color: isDark ? "textSubtle" : "textDisabled", width: "24px" }),
-                    React__default['default'].createElement(Text, { color: isDark ? "textSubtle" : "textDisabled" }, "Home"),
+                    React__default['default'].createElement(HomeIcon, { color: "white", width: "24px" }),
+                    React__default['default'].createElement(Text, { color: "white" }, "Home"),
                     " ")),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
                         window.location.href = '/stoves';
                     } },
-                    React__default['default'].createElement(StoveIcon, { color: isDark ? "textSubtle" : "textDisabled", width: "24px" }),
-                    React__default['default'].createElement(Text, { color: isDark ? "textSubtle" : "textDisabled" }, "Stoves"),
+                    React__default['default'].createElement(StoveIcon, { color: "white", width: "24px" }),
+                    React__default['default'].createElement(Text, { color: "white" }, "Stoves"),
                     " ")),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
                         window.location.href = '/ovens';
                     } },
-                    React__default['default'].createElement(OvenIcon, { color: isDark ? "textSubtle" : "textDisabled", width: "24px" }),
-                    React__default['default'].createElement(Text, { color: isDark ? "textSubtle" : "textDisabled" }, "Ovens"),
+                    React__default['default'].createElement(OvenIcon, { color: "white", width: "24px" }),
+                    React__default['default'].createElement(Text, { color: "white" }, "Ovens"),
                     " ")),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(UserBlock, { account: account, login: login, logout: logout }),

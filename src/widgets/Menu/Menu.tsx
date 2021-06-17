@@ -169,24 +169,24 @@ const Menu: React.FC<NavProps> = ({
               e.preventDefault();
               window.location.href='/';
             }}> 
-            <HomeIcon color={isDark ? "textSubtle" : "textDisabled"} width="24px" />
-            <Text color = {isDark ? "textSubtle" : "textDisabled"}>Home</Text> </Button> 
+            <HomeIcon color="white" width="24px" />
+            <Text color="white">Home</Text> </Button> 
         </Flex>
         <Flex>
           <Button size="sm" onClick={(e) => {
               e.preventDefault();
               window.location.href='/stoves';
             }}> 
-            <StoveIcon color={isDark ? "textSubtle" : "textDisabled"} width="24px" />
-            <Text color = {isDark ? "textSubtle" : "textDisabled"}>Stoves</Text> </Button> 
+            <StoveIcon color="white" width="24px" />
+            <Text color="white">Stoves</Text> </Button> 
         </Flex>        
         <Flex>
           <Button size="sm" onClick={(e) => {
               e.preventDefault();
               window.location.href='/ovens';
             }}> 
-            <OvenIcon color={isDark ? "textSubtle" : "textDisabled"} width="24px" />
-            <Text color = {isDark ? "textSubtle" : "textDisabled"}>Ovens</Text> </Button> 
+            <OvenIcon color="white" width="24px" />
+            <Text color="white" >Ovens</Text> </Button> 
         </Flex>
         <Flex>
           <UserBlock account={account} login={login} logout={logout} />

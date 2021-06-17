@@ -49,7 +49,7 @@ const StyledNavRel = styled.nav<{ showMenu: boolean }>`
   left: 0;
   transition: top 0.2s;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding-left: 8px;
   padding-right: 16px;

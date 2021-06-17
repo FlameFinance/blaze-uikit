@@ -20,7 +20,7 @@ import Button from "../../components/Button/Button";
 import * as IconModule from "./icons";
 import { GiChickenOven } from "react-icons/gi";
 const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
-const { HomeIcon, MoonIcon, SunIcon, StoveIcon as FarmIcon, OvenIcon as PoolIcon } = Icons;
+const { HomeIcon, MoonIcon, SunIcon, StoveIcon, OvenIcon } = Icons;
 
 const Wrapper = styled.div`
   position: relative;
@@ -177,7 +177,7 @@ const Menu: React.FC<NavProps> = ({
               e.preventDefault();
               window.location.href='/stoves';
             }}> 
-            <FarmIcon color={isDark ? "textSubtle" : "textDisabled"} width="24px" />
+            <StoveIcon color={isDark ? "textSubtle" : "textDisabled"} width="24px" />
             <Text color = {isDark ? "textSubtle" : "textDisabled"}>Stoves</Text> </Button> 
         </Flex>        
         <Flex>
@@ -185,7 +185,7 @@ const Menu: React.FC<NavProps> = ({
               e.preventDefault();
               window.location.href='/ovens';
             }}> 
-            <PoolIcon color={isDark ? "textSubtle" : "textDisabled"} width="24px" />
+            <OvenIcon color={isDark ? "textSubtle" : "textDisabled"} width="24px" />
             <Text color = {isDark ? "textSubtle" : "textDisabled"}>Ovens</Text> </Button> 
         </Flex>
         <Flex>

@@ -60,6 +60,10 @@ const StyledNavRel = styled.nav<{ showMenu: boolean }>`
   z-index: 20;
   transform: translate3d(0, 0, 0);
 `;
+const Socials = styled.div`
+  padding-left: 16px;
+  padding-right: 16px;
+`;
 const BodyWrapper = styled.div`
   position: relative;
   display: flex;
@@ -182,6 +186,7 @@ const Menu: React.FC<NavProps> = ({
           ) : (
             <Skeleton width={80} height={24} />
           )}
+          <Socials>
           <Flex>
             {socials.map((social, index) => {
               const Icon = Icons[social.icon];
@@ -206,6 +211,7 @@ const Menu: React.FC<NavProps> = ({
             })}
           </Flex>        
         <Flex>
+        </Socials>
           <Button variant="text" onClick={() => toggleTheme(!isDark)}>
             <Flex alignItems="center">
               <SunIcon color={isDark ? "textDisabled" : "text"} width="24px" />

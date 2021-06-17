@@ -64,7 +64,7 @@ const Socials = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding-left: 16px;
-  padding-right: 16px;
+  padding-right: 32px;
   width: 100%;
   z-index: 20;
   position: relative;
@@ -159,7 +159,7 @@ const Menu: React.FC<NavProps> = ({
               e.preventDefault();
               window.location.href='/';
             }}> 
-            <HomeIcon color={isDark ? "text" : "textDisabled"} width="24px" />
+            <HomeIcon color={"textSubtle"} width="24px" />
             Home </Button> 
         </Flex>
         <Flex>
@@ -167,7 +167,7 @@ const Menu: React.FC<NavProps> = ({
               e.preventDefault();
               window.location.href='/stoves';
             }}> 
-            <StoveIcon color={isDark ? "text" : "textDisabled"} width="24px" />
+            <StoveIcon color={"textSubtle"} width="24px" />
             Stoves </Button> 
         </Flex>        
         <Flex>
@@ -175,7 +175,7 @@ const Menu: React.FC<NavProps> = ({
               e.preventDefault();
               window.location.href='/ovens';
             }}> 
-            <OvenIcon color={isDark ? "text" : "textDisabled"} width="24px" />
+            <OvenIcon color={"textSubtle"} width="24px" />
             Ovens </Button> 
         </Flex>
         <Flex>

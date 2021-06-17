@@ -64,8 +64,17 @@ const Socials = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding-left: 16px;
-  float: right;
-  padding-right: 16px;
+  margin-right: 16px;
+  width: 100%;
+  z-index: 20;
+  position: relative;
+
+`;
+const Toggle = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 16px;
   width: 100%;
   z-index: 20;
   position: relative;
@@ -160,21 +169,24 @@ const Menu: React.FC<NavProps> = ({
               e.preventDefault();
               window.location.href='/';
             }}> 
-            <Text color = {"textSubtle"}> <HomeIcon width="24px" />Homes</Text> </Button> 
+            <HomeIcon color={"textSubtle"} width="24px" />
+            <Text color = {"textSubtle"}>Home</Text> </Button> 
         </Flex>
         <Flex>
           <Button size="sm" onClick={(e) => {
               e.preventDefault();
               window.location.href='/stoves';
             }}> 
-            <Text color = {"textSubtle"}> <FarmIcon width="24px" />Stoves</Text> </Button> 
+            <FarmIcon color={"textSubtle"} width="24px" />
+            <Text color = {"textSubtle"}>Stoves</Text> </Button> 
         </Flex>        
         <Flex>
           <Button size="sm" onClick={(e) => {
               e.preventDefault();
               window.location.href='/ovens';
             }}> 
-            <Text color = {"textSubtle"}> <PoolIcon width="24px" />Ovens</Text> </Button> 
+            <PoolIcon color={"textSubtle"} width="24px" />
+            <Text color = {"textSubtle"}>Ovens</Text> </Button> 
         </Flex>
         <Flex>
           <UserBlock account={account} login={login} logout={logout} />
@@ -214,8 +226,8 @@ const Menu: React.FC<NavProps> = ({
               );
             })}
           </Flex>        
+        </Socials>  
         <Flex>
-        </Socials>
           <Button variant="text" onClick={() => toggleTheme(!isDark)}>
             <Flex alignItems="center">
               <SunIcon color={isDark ? "textDisabled" : "text"} width="24px" />

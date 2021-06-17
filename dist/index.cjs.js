@@ -2506,9 +2506,10 @@ var StyledNavRel = styled__default['default'].nav(templateObject_3 || (templateO
     var theme = _a.theme;
     return theme.nav.background;
 });
-var Socials = styled__default['default'].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding-left: 16px;\n  float: right;\n  padding-right: 16px;\n  width: 100%;\n  z-index: 20;\n  position: relative;\n\n"], ["\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding-left: 16px;\n  float: right;\n  padding-right: 16px;\n  width: 100%;\n  z-index: 20;\n  position: relative;\n\n"])));
-var BodyWrapper = styled__default['default'].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n"], ["\n  position: relative;\n  display: flex;\n"])));
-var Inner = styled__default['default'].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"], ["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"])), function (_a) {
+var Socials = styled__default['default'].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding-left: 16px;\n  margin-right: 16px;\n  width: 100%;\n  z-index: 20;\n  position: relative;\n\n"], ["\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding-left: 16px;\n  margin-right: 16px;\n  width: 100%;\n  z-index: 20;\n  position: relative;\n\n"])));
+styled__default['default'].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding-left: 16px;\n  width: 100%;\n  z-index: 20;\n  position: relative;\n\n"], ["\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding-left: 16px;\n  width: 100%;\n  z-index: 20;\n  position: relative;\n\n"])));
+var BodyWrapper = styled__default['default'].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n"], ["\n  position: relative;\n  display: flex;\n"])));
+var Inner = styled__default['default'].div(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"], ["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"])), function (_a) {
     var showMenu = _a.showMenu;
     return (showMenu ? 2 * MENU_HEIGHT + "px" : 0);
 }, function (_a) {
@@ -2518,11 +2519,11 @@ var Inner = styled__default['default'].div(templateObject_6 || (templateObject_6
     var isPushed = _a.isPushed;
     return (isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED) + "px";
 });
-var MobileOnlyOverlay = styled__default['default'](Overlay)(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  position: fixed;\n  height: 100%;\n\n  ", " {\n    display: none;\n  }\n"], ["\n  position: fixed;\n  height: 100%;\n\n  ", " {\n    display: none;\n  }\n"])), function (_a) {
+var MobileOnlyOverlay = styled__default['default'](Overlay)(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  position: fixed;\n  height: 100%;\n\n  ", " {\n    display: none;\n  }\n"], ["\n  position: fixed;\n  height: 100%;\n\n  ", " {\n    display: none;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.nav;
 });
-var PriceLink = styled__default['default'].a(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"])));
+var PriceLink = styled__default['default'].a(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"])));
 var Menu = function (_a) {
     var _b;
     var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme; _a.langs; _a.setLang; _a.currentLang; var cakePriceUsd = _a.cakePriceUsd, links = _a.links, priceLink = _a.priceLink, profile = _a.profile, children = _a.children;
@@ -2553,30 +2554,24 @@ var Menu = function (_a) {
                         e.preventDefault();
                         window.location.href = '/';
                     } },
-                    React__default['default'].createElement(Text, { color: "textSubtle" },
-                        " ",
-                        React__default['default'].createElement(HomeIcon, { width: "24px" }),
-                        "Homes"),
+                    React__default['default'].createElement(HomeIcon, { color: "textSubtle", width: "24px" }),
+                    React__default['default'].createElement(Text, { color: "textSubtle" }, "Home"),
                     " ")),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
                         window.location.href = '/stoves';
                     } },
-                    React__default['default'].createElement(Text, { color: "textSubtle" },
-                        " ",
-                        React__default['default'].createElement(FarmIcon, { width: "24px" }),
-                        "Stoves"),
+                    React__default['default'].createElement(FarmIcon, { color: "textSubtle", width: "24px" }),
+                    React__default['default'].createElement(Text, { color: "textSubtle" }, "Stoves"),
                     " ")),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(Button, { size: "sm", onClick: function (e) {
                         e.preventDefault();
                         window.location.href = '/ovens';
                     } },
-                    React__default['default'].createElement(Text, { color: "textSubtle" },
-                        " ",
-                        React__default['default'].createElement(PoolIcon, { width: "24px" }),
-                        "Ovens"),
+                    React__default['default'].createElement(PoolIcon, { color: "textSubtle", width: "24px" }),
+                    React__default['default'].createElement(Text, { color: "textSubtle" }, "Ovens"),
                     " ")),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(UserBlock, { account: account, login: login, logout: logout }),
@@ -2595,8 +2590,8 @@ var Menu = function (_a) {
                     }
                     return (React__default['default'].createElement(Link, { external: true, key: social.label, href: social.href, "aria-label": social.label, mr: mr },
                         React__default['default'].createElement(Icon, __assign({}, iconProps))));
-                })),
-                React__default['default'].createElement(Flex, null),
+                }))),
+            React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
                     React__default['default'].createElement(Flex, { alignItems: "center" },
                         React__default['default'].createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
@@ -2606,7 +2601,7 @@ var Menu = function (_a) {
             React__default['default'].createElement(Inner, { isPushed: isPushed, showMenu: showMenu }, children),
             React__default['default'].createElement(MobileOnlyOverlay, { show: isPushed, onClick: function () { return setIsPushed(false); }, role: "presentation" }))));
 };
-var templateObject_1$3, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8;
+var templateObject_1$3, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9;
 
 var ToastAction = function (_a) {
     var action = _a.action;

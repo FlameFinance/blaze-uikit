@@ -39,7 +39,6 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   width: 100%;
   height: ${MENU_HEIGHT}px;
   background-color: ${({ theme }) => theme.nav.background};
-  border-bottom: solid 2px rgba(133, 133, 133, 0.1);
   z-index: 20;
   transform: translate3d(0, 0, 0);
 `;
@@ -61,8 +60,15 @@ const StyledNavRel = styled.nav<{ showMenu: boolean }>`
   transform: translate3d(0, 0, 0);
 `;
 const Socials = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   padding-left: 16px;
   padding-right: 16px;
+  width: 100%;
+  z-index: 20;
+  position: relative;
+
 `;
 const BodyWrapper = styled.div`
   position: relative;

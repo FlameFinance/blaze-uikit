@@ -126,7 +126,6 @@ const MenuButton: React.FC<EntryProps> = (props) => {
   const { icon, calloutClass, label, href } = props
   const Icon = Icons[icon];
   const iconElement = <Icon width="24px" mr="8px" />;
-  const location = useLocation();
 
   return (
     <Flex>

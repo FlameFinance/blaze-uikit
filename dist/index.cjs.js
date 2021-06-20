@@ -2530,7 +2530,6 @@ var MenuButton = function (props) {
     var icon = props.icon; props.calloutClass; props.label; props.href;
     var Icon = Icons[icon];
     React__default['default'].createElement(Icon, { width: "24px", mr: "8px" });
-    reactRouterDom.useLocation();
     return (React__default['default'].createElement(Flex, null,
         React__default['default'].createElement(Button, { size: "sm" }, "Hi")));
 };

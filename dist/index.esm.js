@@ -5,7 +5,7 @@ import get from 'lodash/get';
 import noop from 'lodash/noop';
 import debounce from 'lodash/debounce';
 import throttle from 'lodash/throttle';
-import { Link as Link$1, useLocation } from 'react-router-dom';
+import { Link as Link$1 } from 'react-router-dom';
 import { GiCampCookingPot } from 'react-icons/gi';
 import { CgSmartHomeCooker } from 'react-icons/cg';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -2517,7 +2517,6 @@ var MenuButton = function (props) {
     var icon = props.icon; props.calloutClass; props.label; props.href;
     var Icon = Icons[icon];
     React.createElement(Icon, { width: "24px", mr: "8px" });
-    useLocation();
     return (React.createElement(Flex, null,
         React.createElement(Button, { size: "sm" }, "Hi")));
 };

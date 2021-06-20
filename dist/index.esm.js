@@ -2514,9 +2514,6 @@ var MobileOnlyOverlay = styled(Overlay)(templateObject_8 || (templateObject_8 = 
 });
 var PriceLink = styled.a(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"])));
 var MenuButton = function (props) {
-    var icon = props.icon; props.calloutClass; props.label; props.href;
-    var Icon = Icons[icon];
-    React.createElement(Icon, { width: "24px", mr: "8px" });
     return (React.createElement(Flex, null,
         React.createElement(Button, { size: "sm" }, "Hi")));
 };

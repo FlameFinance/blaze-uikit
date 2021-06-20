@@ -2527,9 +2527,6 @@ var MobileOnlyOverlay = styled__default['default'](Overlay)(templateObject_8 || 
 });
 var PriceLink = styled__default['default'].a(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  svg {\n    transition: transform 0.3s;\n  }\n  :hover {\n    svg {\n      transform: scale(1.2);\n    }\n  }\n"])));
 var MenuButton = function (props) {
-    var icon = props.icon; props.calloutClass; props.label; props.href;
-    var Icon = Icons[icon];
-    React__default['default'].createElement(Icon, { width: "24px", mr: "8px" });
     return (React__default['default'].createElement(Flex, null,
         React__default['default'].createElement(Button, { size: "sm" }, "Hi")));
 };

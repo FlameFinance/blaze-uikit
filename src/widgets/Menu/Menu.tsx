@@ -129,12 +129,11 @@ const MenuButton: React.FC<EntryProps> = (props) => {
   const location = useLocation();
 
   return (
-      <MenuEntry key={label} isActive={href === location.pathname} className={calloutClass ? calloutClass : undefined}>
-            <MenuLink href={href}>
-              {iconElement}
-              <LinkLabel isPushed={true}>{label}</LinkLabel>
-            </MenuLink>
-          </MenuEntry>
+    <Flex>
+      <Button size="sm" > 
+        Hi
+      </Button>
+    </Flex>    
   );
 }
 

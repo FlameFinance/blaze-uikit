@@ -357,8 +357,8 @@ var Icon$S = function (props) {
 };
 
 var Icon$R = function (props) {
-    return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 32 32" }, props),
-        React__default['default'].createElement("image", { width: "32", height: "32", href: "/NOS.png" })));
+    return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 47 32" }, props),
+        React__default['default'].createElement("image", { width: "47", height: "32", href: "/NOS.png" })));
 };
 
 var Icon$Q = function (props) {

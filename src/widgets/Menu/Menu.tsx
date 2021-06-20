@@ -165,28 +165,22 @@ const Menu: React.FC<NavProps> = ({
           href={homeLink?.href ?? "/"}
         />
         <Flex>
-          <Button size="sm" onClick={(e) => {
-              e.preventDefault();
-              window.location.href='/';
-            }}> 
-            <HomeIcon color="white" width="24px" />
-            <Text color="white">Home</Text> </Button> 
+        <Button size="sm" > 
+          <Link external key={'Home'} href={'/'} aria-label={'Home'} color="textSubtle">
+                        {'Home'}
+                      </Link> </Button>
         </Flex>
         <Flex>
-          <Button size="sm" onClick={(e) => {
-              e.preventDefault();
-              window.location.href='/stoves';
-            }}> 
-            <StoveIcon color="white" width="24px" />
-            <Text color="white">Stoves</Text> </Button> 
+        <Button size="sm" > 
+          <Link external key={'Station'} href={'/station'} aria-label={'Station'} color="textSubtle">
+                        {'Station'}
+                      </Link> </Button>
         </Flex>        
         <Flex>
-          <Button size="sm" onClick={(e) => {
-              e.preventDefault();
-              window.location.href='/ovens';
-            }}> 
-            <OvenIcon color="white" width="24px" />
-            <Text color="white" >Ovens</Text> </Button> 
+          <Button size="sm" > 
+          <Link external key={'Garage'} href={'/garage'} aria-label={'Garage'} color="textSubtle">
+                        {'Garage'}
+                      </Link> </Button>
         </Flex>
         <Flex>
           <UserBlock account={account} login={login} logout={logout} />

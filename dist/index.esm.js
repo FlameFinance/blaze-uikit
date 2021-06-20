@@ -2479,7 +2479,7 @@ var Avatar = function (_a) {
 var templateObject_1$4, templateObject_2$1;
 
 var Icons = IconModule;
-var HomeIcon = Icons.HomeIcon, MoonIcon = Icons.MoonIcon, SunIcon = Icons.SunIcon, StoveIcon = Icons.StoveIcon, OvenIcon = Icons.OvenIcon;
+Icons.HomeIcon; var MoonIcon = Icons.MoonIcon, SunIcon = Icons.SunIcon; Icons.StoveIcon; Icons.OvenIcon;
 var Wrapper = styled.div(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
 var StyledNav = styled.nav(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"])), function (_a) {
     var showMenu = _a.showMenu;
@@ -2539,28 +2539,16 @@ var Menu = function (_a) {
         React.createElement(StyledNav, { showMenu: showMenu },
             React.createElement(Logo, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
             React.createElement(Flex, null,
-                React.createElement(Button, { size: "sm", onClick: function (e) {
-                        e.preventDefault();
-                        window.location.href = '/';
-                    } },
-                    React.createElement(HomeIcon, { color: "white", width: "24px" }),
-                    React.createElement(Text, { color: "white" }, "Home"),
+                React.createElement(Button, { size: "sm" },
+                    React.createElement(Link, { external: true, key: 'Home', href: '/', "aria-label": 'Home', color: "textSubtle" }, 'Home'),
                     " ")),
             React.createElement(Flex, null,
-                React.createElement(Button, { size: "sm", onClick: function (e) {
-                        e.preventDefault();
-                        window.location.href = '/stoves';
-                    } },
-                    React.createElement(StoveIcon, { color: "white", width: "24px" }),
-                    React.createElement(Text, { color: "white" }, "Stoves"),
+                React.createElement(Button, { size: "sm" },
+                    React.createElement(Link, { external: true, key: 'Station', href: '/station', "aria-label": 'Station', color: "textSubtle" }, 'Station'),
                     " ")),
             React.createElement(Flex, null,
-                React.createElement(Button, { size: "sm", onClick: function (e) {
-                        e.preventDefault();
-                        window.location.href = '/ovens';
-                    } },
-                    React.createElement(OvenIcon, { color: "white", width: "24px" }),
-                    React.createElement(Text, { color: "white" }, "Ovens"),
+                React.createElement(Button, { size: "sm" },
+                    React.createElement(Link, { external: true, key: 'Garage', href: '/garage', "aria-label": 'Garage', color: "textSubtle" }, 'Garage'),
                     " ")),
             React.createElement(Flex, null,
                 React.createElement(UserBlock, { account: account, login: login, logout: logout }),

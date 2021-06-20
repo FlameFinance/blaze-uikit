@@ -2492,7 +2492,7 @@ var Avatar = function (_a) {
 var templateObject_1$4, templateObject_2$1;
 
 var Icons = IconModule;
-var HomeIcon = Icons.HomeIcon, MoonIcon = Icons.MoonIcon, SunIcon = Icons.SunIcon, StoveIcon = Icons.StoveIcon, OvenIcon = Icons.OvenIcon;
+Icons.HomeIcon; var MoonIcon = Icons.MoonIcon, SunIcon = Icons.SunIcon; Icons.StoveIcon; Icons.OvenIcon;
 var Wrapper = styled__default['default'].div(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
 var StyledNav = styled__default['default'].nav(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"])), function (_a) {
     var showMenu = _a.showMenu;
@@ -2552,28 +2552,16 @@ var Menu = function (_a) {
         React__default['default'].createElement(StyledNav, { showMenu: showMenu },
             React__default['default'].createElement(Logo, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
             React__default['default'].createElement(Flex, null,
-                React__default['default'].createElement(Button, { size: "sm", onClick: function (e) {
-                        e.preventDefault();
-                        window.location.href = '/';
-                    } },
-                    React__default['default'].createElement(HomeIcon, { color: "white", width: "24px" }),
-                    React__default['default'].createElement(Text, { color: "white" }, "Home"),
+                React__default['default'].createElement(Button, { size: "sm" },
+                    React__default['default'].createElement(Link, { external: true, key: 'Home', href: '/', "aria-label": 'Home', color: "textSubtle" }, 'Home'),
                     " ")),
             React__default['default'].createElement(Flex, null,
-                React__default['default'].createElement(Button, { size: "sm", onClick: function (e) {
-                        e.preventDefault();
-                        window.location.href = '/stoves';
-                    } },
-                    React__default['default'].createElement(StoveIcon, { color: "white", width: "24px" }),
-                    React__default['default'].createElement(Text, { color: "white" }, "Stoves"),
+                React__default['default'].createElement(Button, { size: "sm" },
+                    React__default['default'].createElement(Link, { external: true, key: 'Station', href: '/station', "aria-label": 'Station', color: "textSubtle" }, 'Station'),
                     " ")),
             React__default['default'].createElement(Flex, null,
-                React__default['default'].createElement(Button, { size: "sm", onClick: function (e) {
-                        e.preventDefault();
-                        window.location.href = '/ovens';
-                    } },
-                    React__default['default'].createElement(OvenIcon, { color: "white", width: "24px" }),
-                    React__default['default'].createElement(Text, { color: "white" }, "Ovens"),
+                React__default['default'].createElement(Button, { size: "sm" },
+                    React__default['default'].createElement(Link, { external: true, key: 'Garage', href: '/garage', "aria-label": 'Garage', color: "textSubtle" }, 'Garage'),
                     " ")),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(UserBlock, { account: account, login: login, logout: logout }),

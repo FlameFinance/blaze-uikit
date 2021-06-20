@@ -122,16 +122,6 @@ const PriceLink = styled.a`
   }
 `;
 
-const MenuButton: React.FC<EntryProps> = (props) => {
-  return (
-    <Flex>
-      <Button size="sm" > 
-        Hi
-      </Button>
-    </Flex>    
-  );
-}
-
 const Menu: React.FC<NavProps> = ({
   account,
   login,
@@ -180,7 +170,21 @@ const Menu: React.FC<NavProps> = ({
           href={homeLink?.href ?? "/"}
         />
         {links.map((entry) => {
-          <MenuButton icon={entry.icon} calloutClass={entry.calloutClass} label={entry.label} href = {entry.href}/>
+          const { icon, calloutClass, label, href } = entry
+          const Icon = Icons[icon];
+          const iconElement = <Icon width="24px" mr="8px" />;
+          const location = useLocation();
+
+          return (
+            <Flex>
+              <Button size="sm" > 
+                  <MenuLink href={href}>
+                    {iconElement}
+                    <LinkLabel isPushed={true}>{label}</LinkLabel>
+                  </MenuLink>
+              </Button>
+            </Flex>    
+          );
         })}
         <Flex>
           <UserBlock account={account} login={login} logout={logout} />

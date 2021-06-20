@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import throttle from "lodash/throttle";
-import { useLocation } from "react-router-dom";
-import { PanelProps, PushedProps } from "./types";
 import { PancakeRoundIcon, CogIcon, SvgProps } from "../../components/Svg";
 import Overlay from "../../components/Overlay/Overlay";
 import { Flex } from "../../components/Flex";
@@ -15,16 +13,12 @@ import UserBlock from "./UserBlock";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import { socials, MENU_ENTRY_HEIGHT } from "./config";
 import Skeleton from "../../components/Skeleton/Skeleton";
-import { NavProps, MenuEntry as EntryProps } from "./types";
+import { NavProps } from "./types";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
-import { MenuEntry, LinkLabel } from "./MenuEntry";
-import MenuLink from "./MenuLink";
 import Avatar from "./Avatar";
 import Button from "../../components/Button/Button";
 import * as IconModule from "./icons";
-
-
-
+import { GiChickenOven } from "react-icons/gi";
 const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
 const { HomeIcon, MoonIcon, SunIcon, StoveIcon, OvenIcon } = Icons;
 
@@ -121,27 +115,6 @@ const PriceLink = styled.a`
     }
   }
 `;
-
-const MenuButton: React.FC<EntryProps> = (props) => {
-  const { icon, calloutClass, label, href } = props
-  const Icon = Icons[icon];
-  const iconElement = <Icon width="24px" mr="8px" />;
-  const location = useLocation();
-
-  return (
-    <Flex>
-      <Button size="sm" > 
-        <MenuEntry key={label} isActive={href === location.pathname} className={calloutClass ? calloutClass : undefined}>
-              <MenuLink href={href}>
-                {iconElement}
-                <LinkLabel isPushed={true}>{label}</LinkLabel>
-              </MenuLink>
-            </MenuEntry>
-      </Button>
-    </Flex>    
-  );
-}
-
 const Menu: React.FC<NavProps> = ({
   account,
   login,
@@ -157,6 +130,8 @@ const Menu: React.FC<NavProps> = ({
   profile,
   children,
 }) => {
+  const { isXl } = useMatchBreakpoints();
+  const isMobile = isXl === false;
   const [isPushed, setIsPushed] = useState(false);
   const showMenu=true;
   const refPrevOffset = useRef(window.pageYOffset);
@@ -189,9 +164,24 @@ const Menu: React.FC<NavProps> = ({
           isDark={isDark}
           href={homeLink?.href ?? "/"}
         />
-        {links.map((entry) => {
-          <MenuButton icon={entry.icon} calloutClass={entry.calloutClass} label={entry.label} href = {entry.href}/>
-        })}
+        <Flex>
+        <Button size="sm" > 
+          <Link external key={'Station'} href={'/station'} aria-label={'Station'} color="textSubtle">
+                        {'Station'}
+                      </Link> </Button>
+        </Flex>
+        <Flex>
+        <Button size="sm" > 
+          <Link external key={'Station'} href={'/station'} aria-label={'Station'} color="textSubtle">
+                        {'Station'}
+                      </Link> </Button>
+        </Flex>        
+        <Flex>
+          <Button size="sm" > 
+          <Link external key={'Garage'} href={'/garage'} aria-label={'Garage'} color="textSubtle">
+                        {'Garage'}
+                      </Link> </Button>
+        </Flex>
         <Flex>
           <UserBlock account={account} login={login} logout={logout} />
           {profile && <Avatar profile={profile} />}

@@ -179,7 +179,7 @@ const Menu: React.FC<NavProps> = ({
             <Flex>
               <Button size="sm" > 
                   <MenuLink href={href}>
-                    {iconElement}
+                    {/* {iconElement} */}
                     <LinkLabel isPushed={true}>{label}</LinkLabel>
                   </MenuLink>
               </Button>

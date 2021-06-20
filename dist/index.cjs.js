@@ -2600,12 +2600,11 @@ var Menu = function (_a) {
             links.map(function (entry) {
                 var icon = entry.icon; entry.calloutClass; var label = entry.label, href = entry.href;
                 var Icon = Icons[icon];
-                var iconElement = React__default['default'].createElement(Icon, { width: "24px", mr: "8px" });
+                React__default['default'].createElement(Icon, { width: "24px", mr: "8px" });
                 reactRouterDom.useLocation();
                 return (React__default['default'].createElement(Flex, null,
                     React__default['default'].createElement(Button, { size: "sm" },
                         React__default['default'].createElement(MenuLink, { href: href },
-                            iconElement,
                             React__default['default'].createElement(LinkLabel, { isPushed: true }, label)))));
             }),
             React__default['default'].createElement(Flex, null,

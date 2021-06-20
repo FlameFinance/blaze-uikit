@@ -2587,12 +2587,11 @@ var Menu = function (_a) {
             links.map(function (entry) {
                 var icon = entry.icon; entry.calloutClass; var label = entry.label, href = entry.href;
                 var Icon = Icons[icon];
-                var iconElement = React.createElement(Icon, { width: "24px", mr: "8px" });
+                React.createElement(Icon, { width: "24px", mr: "8px" });
                 useLocation();
                 return (React.createElement(Flex, null,
                     React.createElement(Button, { size: "sm" },
                         React.createElement(MenuLink, { href: href },
-                            iconElement,
                             React.createElement(LinkLabel, { isPushed: true }, label)))));
             }),
             React.createElement(Flex, null,

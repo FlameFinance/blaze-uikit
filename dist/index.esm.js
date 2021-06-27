@@ -2625,10 +2625,10 @@ var Menu = function (_a) {
                 var Icon = Icons[icon];
                 React.createElement(Icon, { width: "24px", mr: "8px" });
                 useLocation();
-                return (React.createElement(Flex, null,
+                return (entry.label !== "Docs") ? (React.createElement(Flex, null,
                     React.createElement(Button2, { size: "sm", disabled: true },
                         React.createElement(MenuLink, { href: href },
-                            React.createElement(LinkLabel, { isPushed: true }, label)))));
+                            React.createElement(LinkLabel, { isPushed: true }, label))))) : null;
             }),
             React.createElement(Flex, null,
                 React.createElement(UserBlock, { account: account, login: login, logout: logout }),

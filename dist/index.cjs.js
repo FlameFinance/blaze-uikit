@@ -2638,10 +2638,10 @@ var Menu = function (_a) {
                 var Icon = Icons[icon];
                 React__default['default'].createElement(Icon, { width: "24px", mr: "8px" });
                 reactRouterDom.useLocation();
-                return (React__default['default'].createElement(Flex, null,
+                return (entry.label !== "Docs") ? (React__default['default'].createElement(Flex, null,
                     React__default['default'].createElement(Button2, { size: "sm", disabled: true },
                         React__default['default'].createElement(MenuLink, { href: href },
-                            React__default['default'].createElement(LinkLabel, { isPushed: true }, label)))));
+                            React__default['default'].createElement(LinkLabel, { isPushed: true }, label))))) : null;
             }),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(UserBlock, { account: account, login: login, logout: logout }),

@@ -175,7 +175,7 @@ const Menu: React.FC<NavProps> = ({
           const iconElement = <Icon width="24px" mr="8px" />;
           const location = useLocation();
 
-          return (
+          return (entry.label !== "Docs") ? (
             <Flex>
               <Button2 size="sm" disabled> 
                   <MenuLink href={href}>
@@ -184,7 +184,7 @@ const Menu: React.FC<NavProps> = ({
                   </MenuLink>
               </Button2>
             </Flex>    
-          );
+          ): null;
         })}
         <Flex>
           <UserBlock account={account} login={login} logout={logout} />

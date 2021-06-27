@@ -156,14 +156,14 @@ var variants$1 = {
     SUCCESS: "success",
 };
 
-var getDisabledStyles = function (_a) {
+var getDisabledStyles2 = function (_a) {
     var isLoading = _a.isLoading; _a.theme;
     if (isLoading === true) {
         return "\n      &:disabled,\n      &.button--disabled {\n        cursor: not-allowed;\n      }\n    ";
     }
     return "\n    &:disabled,\n    &.button--disabled {\n      background-color: #e40189;\n      border-color: #e40189;\n      box-shadow: none;\n      color: #e40189;\n    }\n  ";
 };
-var getDisabledStyles2 = function (_a) {
+var getDisabledStyles = function (_a) {
     var isLoading = _a.isLoading, theme = _a.theme;
     if (isLoading === true) {
         return "\n      &:disabled,\n      &.button--disabled {\n        cursor: not-allowed;\n      }\n    ";

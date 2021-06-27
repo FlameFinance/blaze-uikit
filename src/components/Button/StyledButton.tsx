@@ -6,7 +6,7 @@ type ThemedProps = {
   theme: DefaultTheme;
 } & ButtonProps;
 
-const getDisabledStyles = ({ isLoading, theme }: ThemedProps) => {
+const getDisabledStyles2 = ({ isLoading, theme }: ThemedProps) => {
   if (isLoading === true) {
     return `
       &:disabled,
@@ -26,7 +26,7 @@ const getDisabledStyles = ({ isLoading, theme }: ThemedProps) => {
     }
   `;
 };
-const getDisabledStyles2 = ({ isLoading, theme }: ThemedProps) => {
+const getDisabledStyles = ({ isLoading, theme }: ThemedProps) => {
   if (isLoading === true) {
     return `
       &:disabled,

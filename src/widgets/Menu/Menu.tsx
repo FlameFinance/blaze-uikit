@@ -225,6 +225,23 @@ const Menu: React.FC<NavProps> = ({
             })}
           </Flex>        
         </Socials>  
+        {links.map((entry) => {
+          const { icon, calloutClass, label, href } = entry
+          const Icon = Icons[icon];
+          const iconElement = <Icon width="24px" mr="8px" />;
+          const location = useLocation();
+
+          return (entry.label === 'Docs') ? (
+            <Flex>
+              <Button2 size="sm" disabled> 
+                  <MenuLink href={href}>
+                    {/* {iconElement} */}
+                    <LinkLabel isPushed={true}>{label}</LinkLabel>
+                  </MenuLink>
+              </Button2>
+            </Flex>    
+          ) : null;
+        })}        
         <Flex>
           <Button variant="text" onClick={() => toggleTheme(!isDark)}>
             <Flex alignItems="center">

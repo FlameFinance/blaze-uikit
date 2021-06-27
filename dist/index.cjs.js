@@ -2495,11 +2495,6 @@ var socials = [
         icon: "TwitterIcon",
         href: "https://twitter.com/flamefinance",
     },
-    {
-        label: "Reddit",
-        icon: "RedditIcon",
-        href: "https://www.reddit.com/r/FlameFinance",
-    },
 ];
 var MENU_HEIGHT = 64;
 var MENU_ENTRY_HEIGHT = 48;
@@ -2666,6 +2661,16 @@ var Menu = function (_a) {
                     return (React__default['default'].createElement(Link, { external: true, key: social.label, href: social.href, "aria-label": social.label, mr: mr },
                         React__default['default'].createElement(Icon, __assign({}, iconProps))));
                 }))),
+            links.map(function (entry) {
+                var icon = entry.icon; entry.calloutClass; var label = entry.label, href = entry.href;
+                var Icon = Icons[icon];
+                React__default['default'].createElement(Icon, { width: "24px", mr: "8px" });
+                reactRouterDom.useLocation();
+                return (entry.label === 'Docs') ? (React__default['default'].createElement(Flex, null,
+                    React__default['default'].createElement(Button2, { size: "sm", disabled: true },
+                        React__default['default'].createElement(MenuLink, { href: href },
+                            React__default['default'].createElement(LinkLabel, { isPushed: true }, label))))) : null;
+            }),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
                     React__default['default'].createElement(Flex, { alignItems: "center" },

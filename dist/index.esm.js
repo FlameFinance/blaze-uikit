@@ -2482,11 +2482,6 @@ var socials = [
         icon: "TwitterIcon",
         href: "https://twitter.com/flamefinance",
     },
-    {
-        label: "Reddit",
-        icon: "RedditIcon",
-        href: "https://www.reddit.com/r/FlameFinance",
-    },
 ];
 var MENU_HEIGHT = 64;
 var MENU_ENTRY_HEIGHT = 48;
@@ -2653,6 +2648,16 @@ var Menu = function (_a) {
                     return (React.createElement(Link, { external: true, key: social.label, href: social.href, "aria-label": social.label, mr: mr },
                         React.createElement(Icon, __assign({}, iconProps))));
                 }))),
+            links.map(function (entry) {
+                var icon = entry.icon; entry.calloutClass; var label = entry.label, href = entry.href;
+                var Icon = Icons[icon];
+                React.createElement(Icon, { width: "24px", mr: "8px" });
+                useLocation();
+                return (entry.label === 'Docs') ? (React.createElement(Flex, null,
+                    React.createElement(Button2, { size: "sm", disabled: true },
+                        React.createElement(MenuLink, { href: href },
+                            React.createElement(LinkLabel, { isPushed: true }, label))))) : null;
+            }),
             React.createElement(Flex, null,
                 React.createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
                     React.createElement(Flex, { alignItems: "center" },

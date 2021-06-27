@@ -129,11 +129,6 @@ export const socials = [
     icon: "TwitterIcon",
     href: "https://twitter.com/flamefinance",
   },
-  {
-    label: "Reddit",
-    icon: "RedditIcon",
-    href: "https://www.reddit.com/r/FlameFinance",
-  },
 ];
 
 export const MENU_HEIGHT = 64;

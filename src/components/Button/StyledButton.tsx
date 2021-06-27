@@ -19,6 +19,26 @@ const getDisabledStyles = ({ isLoading, theme }: ThemedProps) => {
   return `
     &:disabled,
     &.button--disabled {
+      background-color: #e40189;
+      border-color: #e40189;
+      box-shadow: none;
+      color: #e40189;
+    }
+  `;
+};
+const getDisabledStyles2 = ({ isLoading, theme }: ThemedProps) => {
+  if (isLoading === true) {
+    return `
+      &:disabled,
+      &.button--disabled {
+        cursor: not-allowed;
+      }
+    `;
+  }
+
+  return `
+    &:disabled,
+    &.button--disabled {
       background-color: ${theme.colors.backgroundDisabled};
       border-color: ${theme.colors.backgroundDisabled};
       box-shadow: none;
@@ -27,6 +47,7 @@ const getDisabledStyles = ({ isLoading, theme }: ThemedProps) => {
     }
   `;
 };
+
 
 const removePointerEvents = ({ disabled, as }: ThemedProps) => {
   if (disabled && as && as !== "button") {
@@ -121,10 +142,9 @@ export const StyledButton2 = styled.button<ButtonProps>`
 
   &:active {
     background-color: #e40189;
-    box-shadow: ${getButtonVariantProp("boxShadowActive")};
   }
 
-  ${getDisabledStyles}
+  ${getDisabledStyles2}
   ${removePointerEvents}
   ${space}
 `;

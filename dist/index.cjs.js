@@ -157,6 +157,13 @@ var variants$1 = {
 };
 
 var getDisabledStyles = function (_a) {
+    var isLoading = _a.isLoading; _a.theme;
+    if (isLoading === true) {
+        return "\n      &:disabled,\n      &.button--disabled {\n        cursor: not-allowed;\n      }\n    ";
+    }
+    return "\n    &:disabled,\n    &.button--disabled {\n      background-color: #e40189;\n      border-color: #e40189;\n      box-shadow: none;\n      color: #e40189;\n    }\n  ";
+};
+var getDisabledStyles2 = function (_a) {
     var isLoading = _a.isLoading, theme = _a.theme;
     if (isLoading === true) {
         return "\n      &:disabled,\n      &.button--disabled {\n        cursor: not-allowed;\n      }\n    ";
@@ -190,7 +197,7 @@ var StyledButton = styled__default['default'].button(templateObject_1$D || (temp
     var theme = _a.theme;
     return theme.colors.secondary;
 }, getButtonVariantProp("backgroundActive"), getButtonVariantProp("boxShadowActive"), getDisabledStyles, removePointerEvents, styledSystem.space);
-var StyledButton2 = styled__default['default'].button(templateObject_2$d || (templateObject_2$d = __makeTemplateObject(["\n  align-items: center;\n  background-color: #e40189;\n  border: ", ";\n  border-radius: 16px;\n  box-shadow: ", ";\n  color: #e40189;\n  cursor: pointer;\n  display: inline-flex;\n  font-family: inherit;\n  font-size: 16px;\n  font-weight: 600;\n  /* max-content instead of auto for Safari fix */\n  width: ", ";\n  height: ", ";\n  line-height: 1;\n  letter-spacing: 0.03em;\n  justify-content: center;\n  outline: 0;\n  padding: ", ";\n  transition: background-color 0.2s;\n  opacity: ", ";\n\n  &:hover:not(:disabled):not(.button--disabled):not(:active) {\n    background-color: #e40189;\n    border-color: ", ";\n  }\n\n  &:focus:not(:active) {\n    box-shadow: 0 0 0 2px ", ";\n  }\n\n  &:active {\n    background-color: #e40189;\n    box-shadow: ", ";\n  }\n\n  ", "\n  ", "\n  ", "\n"], ["\n  align-items: center;\n  background-color: #e40189;\n  border: ", ";\n  border-radius: 16px;\n  box-shadow: ", ";\n  color: #e40189;\n  cursor: pointer;\n  display: inline-flex;\n  font-family: inherit;\n  font-size: 16px;\n  font-weight: 600;\n  /* max-content instead of auto for Safari fix */\n  width: ", ";\n  height: ", ";\n  line-height: 1;\n  letter-spacing: 0.03em;\n  justify-content: center;\n  outline: 0;\n  padding: ", ";\n  transition: background-color 0.2s;\n  opacity: ", ";\n\n  &:hover:not(:disabled):not(.button--disabled):not(:active) {\n    background-color: #e40189;\n    border-color: ", ";\n  }\n\n  &:focus:not(:active) {\n    box-shadow: 0 0 0 2px ", ";\n  }\n\n  &:active {\n    background-color: #e40189;\n    box-shadow: ", ";\n  }\n\n  ", "\n  ", "\n  ", "\n"])), getButtonVariantProp("border"), getButtonVariantProp("boxShadow"), function (_a) {
+var StyledButton2 = styled__default['default'].button(templateObject_2$d || (templateObject_2$d = __makeTemplateObject(["\n  align-items: center;\n  background-color: #e40189;\n  border: ", ";\n  border-radius: 16px;\n  box-shadow: ", ";\n  color: #e40189;\n  cursor: pointer;\n  display: inline-flex;\n  font-family: inherit;\n  font-size: 16px;\n  font-weight: 600;\n  /* max-content instead of auto for Safari fix */\n  width: ", ";\n  height: ", ";\n  line-height: 1;\n  letter-spacing: 0.03em;\n  justify-content: center;\n  outline: 0;\n  padding: ", ";\n  transition: background-color 0.2s;\n  opacity: ", ";\n\n  &:hover:not(:disabled):not(.button--disabled):not(:active) {\n    background-color: #e40189;\n    border-color: ", ";\n  }\n\n  &:focus:not(:active) {\n    box-shadow: 0 0 0 2px ", ";\n  }\n\n  &:active {\n    background-color: #e40189;\n  }\n\n  ", "\n  ", "\n  ", "\n"], ["\n  align-items: center;\n  background-color: #e40189;\n  border: ", ";\n  border-radius: 16px;\n  box-shadow: ", ";\n  color: #e40189;\n  cursor: pointer;\n  display: inline-flex;\n  font-family: inherit;\n  font-size: 16px;\n  font-weight: 600;\n  /* max-content instead of auto for Safari fix */\n  width: ", ";\n  height: ", ";\n  line-height: 1;\n  letter-spacing: 0.03em;\n  justify-content: center;\n  outline: 0;\n  padding: ", ";\n  transition: background-color 0.2s;\n  opacity: ", ";\n\n  &:hover:not(:disabled):not(.button--disabled):not(:active) {\n    background-color: #e40189;\n    border-color: ", ";\n  }\n\n  &:focus:not(:active) {\n    box-shadow: 0 0 0 2px ", ";\n  }\n\n  &:active {\n    background-color: #e40189;\n  }\n\n  ", "\n  ", "\n  ", "\n"])), getButtonVariantProp("border"), getButtonVariantProp("boxShadow"), function (_a) {
     var fullWidth = _a.fullWidth;
     return (fullWidth ? "100%" : "max-content");
 }, function (_a) {
@@ -205,7 +212,7 @@ var StyledButton2 = styled__default['default'].button(templateObject_2$d || (tem
 }, getButtonVariantProp("borderColorHover"), function (_a) {
     var theme = _a.theme;
     return theme.colors.secondary;
-}, getButtonVariantProp("boxShadowActive"), getDisabledStyles, removePointerEvents, styledSystem.space);
+}, getDisabledStyles2, removePointerEvents, styledSystem.space);
 StyledButton.defaultProps = {
     fullWidth: false,
     type: "button",

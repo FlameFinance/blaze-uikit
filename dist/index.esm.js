@@ -2473,14 +2473,14 @@ var socials = [
         items: [
             {
                 label: "English",
-                href: "https://t.me/Flam3Finance",
+                href: "https://t.me/NOSFinance",
             },
         ],
     },
     {
         label: "Twitter",
         icon: "TwitterIcon",
-        href: "https://twitter.com/flamefinance",
+        href: "https://twitter.com/nosfinance",
     },
 ];
 var MENU_HEIGHT = 64;

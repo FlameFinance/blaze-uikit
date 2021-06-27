@@ -87,6 +87,48 @@ const StyledButton = styled.button<ButtonProps>`
   ${space}
 `;
 
+export const StyledButton2 = styled.button<ButtonProps>`
+  align-items: center;
+  background-color: #e40189;
+  border: ${getButtonVariantProp("border")};
+  border-radius: 16px;
+  box-shadow: ${getButtonVariantProp("boxShadow")};
+  color: ${getButtonVariantProp("color")};
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  /* max-content instead of auto for Safari fix */
+  width: ${({ fullWidth }) => (fullWidth ? "100%" : "max-content")};
+  height: ${({ size }) => (size === "sm" ? "32px" : "48px")};
+  line-height: 1;
+  letter-spacing: 0.03em;
+  justify-content: center;
+  outline: 0;
+  padding: ${({ size }) => (size === "sm" ? "0 16px" : "0 24px")};
+  transition: background-color 0.2s;
+  opacity: ${({ isLoading }) => (isLoading ? 0.5 : 1)};
+
+  &:hover:not(:disabled):not(.button--disabled):not(:active) {
+    background-color: ${getButtonVariantProp("backgroundHover")};
+    border-color: ${getButtonVariantProp("borderColorHover")};
+  }
+
+  &:focus:not(:active) {
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.secondary};
+  }
+
+  &:active {
+    background-color: ${getButtonVariantProp("backgroundActive")};
+    box-shadow: ${getButtonVariantProp("boxShadowActive")};
+  }
+
+  ${getDisabledStyles}
+  ${removePointerEvents}
+  ${space}
+`;
+
 StyledButton.defaultProps = {
   fullWidth: false,
   type: "button",

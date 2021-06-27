@@ -80,7 +80,7 @@ var getThemeValue = function (path, fallback) { return function (theme) {
 }; };
 
 var rotate$1 = styled.keyframes(templateObject_1$F || (templateObject_1$F = __makeTemplateObject(["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"], ["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"])));
-var spinStyle = styled.css(templateObject_2$d || (templateObject_2$d = __makeTemplateObject(["\n  animation: ", " 2s linear infinite;\n"], ["\n  animation: ", " 2s linear infinite;\n"])), rotate$1);
+var spinStyle = styled.css(templateObject_2$e || (templateObject_2$e = __makeTemplateObject(["\n  animation: ", " 2s linear infinite;\n"], ["\n  animation: ", " 2s linear infinite;\n"])), rotate$1);
 var Svg = styled__default['default'].svg(templateObject_3$7 || (templateObject_3$7 = __makeTemplateObject(["\n  fill: ", ";\n  flex-shrink: 0;\n\n  ", "\n  ", "\n"], ["\n  fill: ", ";\n  flex-shrink: 0;\n\n  ", "\n  ", "\n"])), function (_a) {
     var theme = _a.theme, color = _a.color;
     return getThemeValue("colors." + color, color)(theme);
@@ -94,7 +94,7 @@ Svg.defaultProps = {
     xmlns: "http://www.w3.org/2000/svg",
     spin: false,
 };
-var templateObject_1$F, templateObject_2$d, templateObject_3$7;
+var templateObject_1$F, templateObject_2$e, templateObject_3$7;
 
 var Icon$1f = function (props) {
     return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 24 24" }, props),
@@ -190,11 +190,27 @@ var StyledButton = styled__default['default'].button(templateObject_1$D || (temp
     var theme = _a.theme;
     return theme.colors.secondary;
 }, getButtonVariantProp("backgroundActive"), getButtonVariantProp("boxShadowActive"), getDisabledStyles, removePointerEvents, styledSystem.space);
+var StyledButton2 = styled__default['default'].button(templateObject_2$d || (templateObject_2$d = __makeTemplateObject(["\n  align-items: center;\n  background-color: #e40189;\n  border: ", ";\n  border-radius: 16px;\n  box-shadow: ", ";\n  color: ", ";\n  cursor: pointer;\n  display: inline-flex;\n  font-family: inherit;\n  font-size: 16px;\n  font-weight: 600;\n  /* max-content instead of auto for Safari fix */\n  width: ", ";\n  height: ", ";\n  line-height: 1;\n  letter-spacing: 0.03em;\n  justify-content: center;\n  outline: 0;\n  padding: ", ";\n  transition: background-color 0.2s;\n  opacity: ", ";\n\n  &:hover:not(:disabled):not(.button--disabled):not(:active) {\n    background-color: ", ";\n    border-color: ", ";\n  }\n\n  &:focus:not(:active) {\n    box-shadow: 0 0 0 2px ", ";\n  }\n\n  &:active {\n    background-color: ", ";\n    box-shadow: ", ";\n  }\n\n  ", "\n  ", "\n  ", "\n"], ["\n  align-items: center;\n  background-color: #e40189;\n  border: ", ";\n  border-radius: 16px;\n  box-shadow: ", ";\n  color: ", ";\n  cursor: pointer;\n  display: inline-flex;\n  font-family: inherit;\n  font-size: 16px;\n  font-weight: 600;\n  /* max-content instead of auto for Safari fix */\n  width: ", ";\n  height: ", ";\n  line-height: 1;\n  letter-spacing: 0.03em;\n  justify-content: center;\n  outline: 0;\n  padding: ", ";\n  transition: background-color 0.2s;\n  opacity: ", ";\n\n  &:hover:not(:disabled):not(.button--disabled):not(:active) {\n    background-color: ", ";\n    border-color: ", ";\n  }\n\n  &:focus:not(:active) {\n    box-shadow: 0 0 0 2px ", ";\n  }\n\n  &:active {\n    background-color: ", ";\n    box-shadow: ", ";\n  }\n\n  ", "\n  ", "\n  ", "\n"])), getButtonVariantProp("border"), getButtonVariantProp("boxShadow"), getButtonVariantProp("color"), function (_a) {
+    var fullWidth = _a.fullWidth;
+    return (fullWidth ? "100%" : "max-content");
+}, function (_a) {
+    var size = _a.size;
+    return (size === "sm" ? "32px" : "48px");
+}, function (_a) {
+    var size = _a.size;
+    return (size === "sm" ? "0 16px" : "0 24px");
+}, function (_a) {
+    var isLoading = _a.isLoading;
+    return (isLoading ? 0.5 : 1);
+}, getButtonVariantProp("backgroundHover"), getButtonVariantProp("borderColorHover"), function (_a) {
+    var theme = _a.theme;
+    return theme.colors.secondary;
+}, getButtonVariantProp("backgroundActive"), getButtonVariantProp("boxShadowActive"), getDisabledStyles, removePointerEvents, styledSystem.space);
 StyledButton.defaultProps = {
     fullWidth: false,
     type: "button",
 };
-var templateObject_1$D;
+var templateObject_1$D, templateObject_2$d;
 
 var Button = function (_a) {
     var startIcon = _a.startIcon, endIcon = _a.endIcon, children = _a.children, external = _a.external, isLoading = _a.isLoading, disabled = _a.disabled, props = __rest(_a, ["startIcon", "endIcon", "children", "external", "isLoading", "disabled"]);
@@ -212,6 +228,35 @@ var Button = function (_a) {
             })));
 };
 Button.defaultProps = {
+    variant: variants$1.PRIMARY,
+    size: sizes$1.MD,
+    external: false,
+    isLoading: false,
+    disabled: false,
+};
+var Button2 = function (_a) {
+    var startIcon = _a.startIcon, endIcon = _a.endIcon, children = _a.children, external = _a.external, isLoading = _a.isLoading, disabled = _a.disabled, props = __rest(_a, ["startIcon", "endIcon", "children", "external", "isLoading", "disabled"]);
+    var internalProps = external ? getExternalLinkProps() : {};
+    var isDisabled = isLoading || disabled;
+    return (React__default['default'].createElement(StyledButton2, __assign({}, internalProps, props, { isLoading: isLoading, disabled: isDisabled }),
+        React__default['default'].isValidElement(startIcon) &&
+            React__default['default'].cloneElement(startIcon, {
+                mr: "0.5rem",
+            }),
+        children,
+        React__default['default'].isValidElement(endIcon) &&
+            React__default['default'].cloneElement(endIcon, {
+                ml: "0.5rem",
+            })));
+};
+Button.defaultProps = {
+    variant: variants$1.PRIMARY,
+    size: sizes$1.MD,
+    external: false,
+    isLoading: false,
+    disabled: false,
+};
+Button2.defaultProps = {
     variant: variants$1.PRIMARY,
     size: sizes$1.MD,
     external: false,
@@ -2592,7 +2637,7 @@ var Menu = function (_a) {
                 React__default['default'].createElement(Icon, { width: "24px", mr: "8px" });
                 reactRouterDom.useLocation();
                 return (React__default['default'].createElement(Flex, null,
-                    React__default['default'].createElement(Button, { size: "sm", disabled: true, color: "#e40189" },
+                    React__default['default'].createElement(Button2, { size: "sm", disabled: true },
                         React__default['default'].createElement(MenuLink, { href: href },
                             React__default['default'].createElement(LinkLabel, { isPushed: true }, label)))));
             }),

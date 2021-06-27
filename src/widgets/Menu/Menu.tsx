@@ -20,7 +20,7 @@ import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config
 import { MenuEntry, LinkLabel } from "./MenuEntry";
 import MenuLink from "./MenuLink";
 import Avatar from "./Avatar";
-import Button from "../../components/Button/Button";
+import Button, { Button2 } from "../../components/Button/Button";
 import * as IconModule from "./icons";
 
 
@@ -177,12 +177,12 @@ const Menu: React.FC<NavProps> = ({
 
           return (
             <Flex>
-              <Button size="sm" disabled color="#e40189"> 
+              <Button2 size="sm" disabled> 
                   <MenuLink href={href}>
                     {/* {iconElement} */}
                     <LinkLabel isPushed={true}>{label}</LinkLabel>
                   </MenuLink>
-              </Button>
+              </Button2>
             </Flex>    
           );
         })}

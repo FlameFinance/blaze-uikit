@@ -177,7 +177,7 @@ const Menu: React.FC<NavProps> = ({
 
           return (
             <Flex>
-              <Button size="sm" > 
+              <Button size="sm" disabled color="#e40189"> 
                   <MenuLink href={href}>
                     {/* {iconElement} */}
                     <LinkLabel isPushed={true}>{label}</LinkLabel>

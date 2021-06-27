@@ -2592,7 +2592,7 @@ var Menu = function (_a) {
                 React__default['default'].createElement(Icon, { width: "24px", mr: "8px" });
                 reactRouterDom.useLocation();
                 return (React__default['default'].createElement(Flex, null,
-                    React__default['default'].createElement(Button, { size: "sm" },
+                    React__default['default'].createElement(Button, { size: "sm", disabled: true, color: "#e40189" },
                         React__default['default'].createElement(MenuLink, { href: href },
                             React__default['default'].createElement(LinkLabel, { isPushed: true }, label)))));
             }),

@@ -93,7 +93,7 @@ export const StyledButton2 = styled.button<ButtonProps>`
   border: ${getButtonVariantProp("border")};
   border-radius: 16px;
   box-shadow: ${getButtonVariantProp("boxShadow")};
-  color: ${getButtonVariantProp("color")};
+  color: #e40189;
   cursor: pointer;
   display: inline-flex;
   font-family: inherit;
@@ -111,7 +111,7 @@ export const StyledButton2 = styled.button<ButtonProps>`
   opacity: ${({ isLoading }) => (isLoading ? 0.5 : 1)};
 
   &:hover:not(:disabled):not(.button--disabled):not(:active) {
-    background-color: ${getButtonVariantProp("backgroundHover")};
+    background-color: #e40189;
     border-color: ${getButtonVariantProp("borderColorHover")};
   }
 
@@ -120,7 +120,7 @@ export const StyledButton2 = styled.button<ButtonProps>`
   }
 
   &:active {
-    background-color: ${getButtonVariantProp("backgroundActive")};
+    background-color: #e40189;
     box-shadow: ${getButtonVariantProp("boxShadowActive")};
   }
 

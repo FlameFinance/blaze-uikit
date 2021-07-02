@@ -175,7 +175,7 @@ const Menu: React.FC<NavProps> = ({
           const iconElement = <Icon width="24px" mr="8px" />;
           const location = useLocation();
 
-          return (entry.label !== "Docs") ? (
+          return (entry.label !== "Docs" || entry.label !== "Presale") ? (
             <Flex>
               <Button2 size="sm" disabled> 
                   <MenuLink href={href}>
@@ -231,7 +231,7 @@ const Menu: React.FC<NavProps> = ({
           const iconElement = <Icon width="24px" mr="8px" />;
           const location = useLocation();
 
-          return (entry.label === 'Docs') ? (
+          return (entry.label === 'Docs' || entry.label === 'Presale') ? (
             <Flex>
               <Button2 size="sm" disabled> 
                   <MenuLink href={href}>

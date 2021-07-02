@@ -2625,7 +2625,7 @@ var Menu = function (_a) {
                 var Icon = Icons[icon];
                 React.createElement(Icon, { width: "24px", mr: "8px" });
                 useLocation();
-                return (entry.label !== "Docs" || entry.label !== "Presale") ? (React.createElement(Flex, null,
+                return (entry.label !== "Docs" && entry.label !== "Presale") ? (React.createElement(Flex, null,
                     React.createElement(Button2, { size: "sm", disabled: true },
                         React.createElement(MenuLink, { href: href },
                             React.createElement(LinkLabel, { isPushed: true }, label))))) : null;

@@ -118,16 +118,16 @@ export const StyledButton2 = styled.button<ButtonProps>`
   cursor: pointer;
   display: inline-flex;
   font-family: inherit;
-  font-size: 12px;
-  font-weight: 400;
+  font-size: ${({isMobile})=>(isMobile ? 12 : 16)}px;
+  font-weight: ${({isMobile})=>(isMobile ? 400 : 600)};
   /* max-content instead of auto for Safari fix */
   width: ${({ fullWidth }) => (fullWidth ? "100%" : "max-content")};
-  height: ${({ size }) => (size === "sm" ? "24px" : "48px")};
+  height: ${({isMobile})=>(isMobile ? 24 : 32)}px;
   line-height: 1;
   letter-spacing: 0.03em;
   justify-content: center;
   outline: 0;
-  padding: ${({ size }) => (size === "sm" ? "0 12px" : "0 24px")};
+  padding: ${({isMobile})=>(isMobile ? 12 : 16)};
   transition: background-color 0.2s;
   opacity: ${({ isLoading }) => (isLoading ? 0.5 : 1)};
 

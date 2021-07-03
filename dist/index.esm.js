@@ -1,9 +1,9 @@
-import React, { Children, isValidElement, cloneElement, useRef, useEffect, useState, useMemo, useReducer, useCallback, createContext, useContext } from 'react';
+import React, { useState, useEffect, useCallback, Children, isValidElement, cloneElement, useRef, useMemo, useReducer, createContext, useContext } from 'react';
 import styled, { keyframes, css, useTheme, createGlobalStyle } from 'styled-components';
 import { space, flexbox, layout } from 'styled-system';
 import get from 'lodash/get';
-import noop from 'lodash/noop';
 import debounce from 'lodash/debounce';
+import noop from 'lodash/noop';
 import throttle from 'lodash/throttle';
 import { Link as Link$1, NavLink, useLocation } from 'react-router-dom';
 import { GiCampCookingPot } from 'react-icons/gi';
@@ -184,15 +184,21 @@ var StyledButton = styled.button(templateObject_1$D || (templateObject_1$D = __m
     var theme = _a.theme;
     return theme.colors.secondary;
 }, getButtonVariantProp("backgroundActive"), getButtonVariantProp("boxShadowActive"), getDisabledStyles, removePointerEvents, space);
-var StyledButton2 = styled.button(templateObject_2$d || (templateObject_2$d = __makeTemplateObject(["\n  align-items: center;\n  background-color: #e40189;\n  border: ", ";\n  border-radius: 112px;\n  box-shadow: ", ";\n  color: #e40189;\n  cursor: pointer;\n  display: inline-flex;\n  font-family: inherit;\n  font-size: 12px;\n  font-weight: 400;\n  /* max-content instead of auto for Safari fix */\n  width: ", ";\n  height: ", ";\n  line-height: 1;\n  letter-spacing: 0.03em;\n  justify-content: center;\n  outline: 0;\n  padding: ", ";\n  transition: background-color 0.2s;\n  opacity: ", ";\n\n  &:hover:not(:disabled):not(.button--disabled):not(:active) {\n    background-color: #e40189;\n    border-color: ", ";\n  }\n\n  &:focus:not(:active) {\n    box-shadow: 0 0 0 2px ", ";\n  }\n\n  &:active {\n    background-color: #e40189;\n  }\n\n  ", "\n  ", "\n  ", "\n"], ["\n  align-items: center;\n  background-color: #e40189;\n  border: ", ";\n  border-radius: 112px;\n  box-shadow: ", ";\n  color: #e40189;\n  cursor: pointer;\n  display: inline-flex;\n  font-family: inherit;\n  font-size: 12px;\n  font-weight: 400;\n  /* max-content instead of auto for Safari fix */\n  width: ", ";\n  height: ", ";\n  line-height: 1;\n  letter-spacing: 0.03em;\n  justify-content: center;\n  outline: 0;\n  padding: ", ";\n  transition: background-color 0.2s;\n  opacity: ", ";\n\n  &:hover:not(:disabled):not(.button--disabled):not(:active) {\n    background-color: #e40189;\n    border-color: ", ";\n  }\n\n  &:focus:not(:active) {\n    box-shadow: 0 0 0 2px ", ";\n  }\n\n  &:active {\n    background-color: #e40189;\n  }\n\n  ", "\n  ", "\n  ", "\n"])), getButtonVariantProp("border"), getButtonVariantProp("boxShadow"), function (_a) {
+var StyledButton2 = styled.button(templateObject_2$d || (templateObject_2$d = __makeTemplateObject(["\n  align-items: center;\n  background-color: #e40189;\n  border: ", ";\n  border-radius: 112px;\n  box-shadow: ", ";\n  color: #e40189;\n  cursor: pointer;\n  display: inline-flex;\n  font-family: inherit;\n  font-size: ", "px;\n  font-weight: ", ";\n  /* max-content instead of auto for Safari fix */\n  width: ", ";\n  height: ", "px;\n  line-height: 1;\n  letter-spacing: 0.03em;\n  justify-content: center;\n  outline: 0;\n  padding: ", ";\n  transition: background-color 0.2s;\n  opacity: ", ";\n\n  &:hover:not(:disabled):not(.button--disabled):not(:active) {\n    background-color: #e40189;\n    border-color: ", ";\n  }\n\n  &:focus:not(:active) {\n    box-shadow: 0 0 0 2px ", ";\n  }\n\n  &:active {\n    background-color: #e40189;\n  }\n\n  ", "\n  ", "\n  ", "\n"], ["\n  align-items: center;\n  background-color: #e40189;\n  border: ", ";\n  border-radius: 112px;\n  box-shadow: ", ";\n  color: #e40189;\n  cursor: pointer;\n  display: inline-flex;\n  font-family: inherit;\n  font-size: ", "px;\n  font-weight: ", ";\n  /* max-content instead of auto for Safari fix */\n  width: ", ";\n  height: ", "px;\n  line-height: 1;\n  letter-spacing: 0.03em;\n  justify-content: center;\n  outline: 0;\n  padding: ", ";\n  transition: background-color 0.2s;\n  opacity: ", ";\n\n  &:hover:not(:disabled):not(.button--disabled):not(:active) {\n    background-color: #e40189;\n    border-color: ", ";\n  }\n\n  &:focus:not(:active) {\n    box-shadow: 0 0 0 2px ", ";\n  }\n\n  &:active {\n    background-color: #e40189;\n  }\n\n  ", "\n  ", "\n  ", "\n"])), getButtonVariantProp("border"), getButtonVariantProp("boxShadow"), function (_a) {
+    var isMobile = _a.isMobile;
+    return (isMobile ? 12 : 16);
+}, function (_a) {
+    var isMobile = _a.isMobile;
+    return (isMobile ? 400 : 600);
+}, function (_a) {
     var fullWidth = _a.fullWidth;
     return (fullWidth ? "100%" : "max-content");
 }, function (_a) {
-    var size = _a.size;
-    return (size === "sm" ? "24px" : "48px");
+    var isMobile = _a.isMobile;
+    return (isMobile ? 24 : 32);
 }, function (_a) {
-    var size = _a.size;
-    return (size === "sm" ? "0 12px" : "0 24px");
+    var isMobile = _a.isMobile;
+    return (isMobile ? 12 : 16);
 }, function (_a) {
     var isLoading = _a.isLoading;
     return (isLoading ? 0.5 : 1);
@@ -205,6 +211,215 @@ StyledButton.defaultProps = {
     type: "button",
 };
 var templateObject_1$D, templateObject_2$d;
+
+var breakpointMap = {
+    xs: 370,
+    sm: 576,
+    md: 852,
+    lg: 968,
+    xl: 1080,
+};
+var breakpoints = Object.values(breakpointMap).map(function (breakpoint) { return breakpoint + "px"; });
+var mediaQueries$1 = {
+    xs: "@media screen and (min-width: " + breakpointMap.xs + "px)",
+    sm: "@media screen and (min-width: " + breakpointMap.sm + "px)",
+    md: "@media screen and (min-width: " + breakpointMap.md + "px)",
+    lg: "@media screen and (min-width: " + breakpointMap.lg + "px)",
+    xl: "@media screen and (min-width: " + breakpointMap.xl + "px)",
+    nav: "@media screen and (min-width: " + breakpointMap.lg + "px)",
+};
+var shadows = {
+    level1: "0px 2px 12px -8px rgba(25, 19, 38, 0.1), 0px 1px 1px rgba(25, 19, 38, 0.05)",
+    active: "0px 0px 0px 1px #0098A1, 0px 0px 4px 8px rgba(31, 199, 212, 0.4)",
+    success: "0px 0px 0px 1px #31D0AA, 0px 0px 0px 4px rgba(49, 208, 170, 0.2)",
+    warning: "0px 0px 0px 1px #ED4B9E, 0px 0px 0px 4px rgba(237, 75, 158, 0.2)",
+    focus: "0px 0px 0px 1px #7645D9, 0px 0px 0px 4px rgba(118, 69, 217, 0.6)",
+    inset: "inset 0px 2px 2px -1px rgba(74, 74, 104, 0.1)",
+};
+var spacing = [0, 4, 8, 16, 24, 32, 48, 64];
+var radii = {
+    small: "4px",
+    default: "16px",
+    card: "32px",
+    circle: "50%",
+};
+var zIndices = {
+    dropdown: 10,
+    modal: 100,
+};
+var base = {
+    siteWidth: 1200,
+    breakpoints: breakpoints,
+    mediaQueries: mediaQueries$1,
+    spacing: spacing,
+    shadows: shadows,
+    radii: radii,
+    zIndices: zIndices,
+};
+
+/**
+ * Can't use the media queries from "base.mediaQueries" because of how matchMedia works
+ * In order for the listener to trigger we need have have the media query with a range, e.g.
+ * (min-width: 370px) and (max-width: 576px)
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList
+ */
+var mediaQueries = (function () {
+    var prevMinWidth = 0;
+    return Object.keys(breakpointMap).reduce(function (accum, size, index) {
+        var _a, _b;
+        // Largest size is just a min-width of second highest max-width
+        if (index === Object.keys(breakpointMap).length - 1) {
+            return __assign(__assign({}, accum), (_a = {}, _a[size] = "(min-width: " + prevMinWidth + "px)", _a));
+        }
+        var minWidth = prevMinWidth;
+        var breakpoint = breakpointMap[size];
+        // Min width for next iteration
+        prevMinWidth = breakpoint + 1;
+        return __assign(__assign({}, accum), (_b = {}, _b[size] = "(min-width: " + minWidth + "px) and (max-width: " + breakpoint + "px)", _b));
+    }, {});
+})();
+var getKey = function (size) { return "is" + size.charAt(0).toUpperCase() + size.slice(1); };
+var useMatchBreakpoints = function () {
+    var _a = useState(function () {
+        return Object.keys(mediaQueries).reduce(function (accum, size) {
+            var _a;
+            var key = getKey(size);
+            var mql = window.matchMedia(mediaQueries[size]);
+            return __assign(__assign({}, accum), (_a = {}, _a[key] = mql.matches, _a));
+        }, {});
+    }), state = _a[0], setState = _a[1];
+    useEffect(function () {
+        // Create listeners for each media query returning a function to unsubscribe
+        var handlers = Object.keys(mediaQueries).map(function (size) {
+            var mql = window.matchMedia(mediaQueries[size]);
+            var handler = function (matchMediaQuery) {
+                var key = getKey(size);
+                setState(function (prevState) {
+                    var _a;
+                    return (__assign(__assign({}, prevState), (_a = {}, _a[key] = matchMediaQuery.matches, _a)));
+                });
+            };
+            // Safari < 14 fix
+            if (mql.addEventListener) {
+                mql.addEventListener("change", handler);
+            }
+            return function () {
+                // Safari < 14 fix
+                if (mql.removeEventListener) {
+                    mql.removeEventListener("change", handler);
+                }
+            };
+        });
+        return function () {
+            handlers.forEach(function (unsubscribe) {
+                unsubscribe();
+            });
+        };
+    }, [setState]);
+    return state;
+};
+
+var defaultParticleOptions = {
+    size: 30,
+    distance: 500,
+};
+var createParticle = function (x, y, imgSrc, options) {
+    if (options === void 0) { options = {}; }
+    var _a = __assign(__assign({}, defaultParticleOptions), options), size = _a.size, distance = _a.distance;
+    var particle = document.createElement("particle");
+    document.body.appendChild(particle);
+    var width = Math.floor(Math.random() * size + 8);
+    var height = width;
+    var destinationX = (Math.random() - 0.5) * distance;
+    var destinationY = (Math.random() - 0.5) * distance;
+    var rotation = Math.random() * 520;
+    var delay = Math.random() * 200;
+    particle.style.backgroundRepeat = "no-repeat";
+    particle.style.backgroundSize = "contain";
+    particle.style.backgroundImage = "url(" + imgSrc + ")";
+    particle.style.left = "0";
+    particle.style.top = "0";
+    particle.style.opacity = "0";
+    particle.style.pointerEvents = "none";
+    particle.style.position = "fixed";
+    particle.style.width = width + "px";
+    particle.style.height = height + "px";
+    var animation = particle.animate([
+        {
+            transform: "translate(-50%, -50%) translate(" + x + "px, " + y + "px) rotate(0deg)",
+            opacity: 1,
+        },
+        {
+            transform: "translate(-50%, -50%) translate(" + (x + destinationX) + "px, " + (y + destinationY) + "px) rotate(" + rotation + "deg)",
+            opacity: 0,
+        },
+    ], {
+        duration: Math.random() * 1000 + 5000,
+        easing: "cubic-bezier(0, .9, .57, 1)",
+        delay: delay,
+    });
+    animation.onfinish = function () {
+        particle.remove();
+    };
+};
+var defaultOptions = {
+    numberOfParticles: 30,
+    debounceDuration: 200,
+    particleOptions: {},
+};
+/**
+ * @see https://css-tricks.com/playing-with-particles-using-the-web-animations-api/
+ */
+var useParticleBurst = function (options) {
+    var _a = __assign(__assign({}, defaultOptions), options), selector = _a.selector, numberOfParticles = _a.numberOfParticles, debounceDuration = _a.debounceDuration, imgSrc = _a.imgSrc, disableWhen = _a.disableWhen, particleOptions = _a.particleOptions;
+    var makeListener = useCallback(function () {
+        return debounce(function (event) {
+            var isDisabled = disableWhen && disableWhen();
+            if (!isDisabled) {
+                var node = event.currentTarget;
+                if (event.clientX === 0 && event.clientY === 0) {
+                    var _a = node.getBoundingClientRect(), left = _a.left, width = _a.width, top_1 = _a.top, height = _a.height;
+                    var x = left + width / 2;
+                    var y = top_1 + height / 2;
+                    for (var i = 0; i < numberOfParticles; i += 1) {
+                        createParticle(x, y, imgSrc, particleOptions);
+                    }
+                }
+                else {
+                    for (var i = 0; i < numberOfParticles; i += 1) {
+                        createParticle(event.clientX, event.clientY + window.scrollY, imgSrc, particleOptions);
+                    }
+                }
+            }
+        }, debounceDuration, { leading: true });
+    }, [debounceDuration, numberOfParticles, imgSrc, disableWhen, particleOptions]);
+    var listener = makeListener();
+    var initialize = useCallback(function () {
+        if (selector) {
+            document.querySelectorAll(selector).forEach(function (element) {
+                element.addEventListener("click", listener);
+            });
+        }
+        else {
+            document.addEventListener("click", listener);
+        }
+    }, [selector, listener]);
+    var teardown = useCallback(function () {
+        if (selector) {
+            document.querySelectorAll(selector).forEach(function (element) {
+                element.removeEventListener("click", listener);
+            });
+        }
+        else {
+            document.removeEventListener("click", listener);
+        }
+    }, [selector, listener]);
+    useEffect(function () {
+        initialize();
+        return function () { return teardown(); };
+    }, [initialize, teardown]);
+    return { initialize: initialize, teardown: teardown };
+};
 
 var Button = function (_a) {
     var startIcon = _a.startIcon, endIcon = _a.endIcon, children = _a.children, external = _a.external, isLoading = _a.isLoading, disabled = _a.disabled, props = __rest(_a, ["startIcon", "endIcon", "children", "external", "isLoading", "disabled"]);
@@ -231,8 +446,10 @@ Button.defaultProps = {
 var Button2 = function (_a) {
     var startIcon = _a.startIcon, endIcon = _a.endIcon, children = _a.children, external = _a.external, isLoading = _a.isLoading, disabled = _a.disabled, props = __rest(_a, ["startIcon", "endIcon", "children", "external", "isLoading", "disabled"]);
     var internalProps = external ? getExternalLinkProps() : {};
+    var isXl = useMatchBreakpoints().isXl;
+    var isMobile = isXl === false;
     var isDisabled = isLoading || disabled;
-    return (React.createElement(StyledButton2, __assign({}, internalProps, props, { isLoading: isLoading, disabled: isDisabled }),
+    return (React.createElement(StyledButton2, __assign({}, internalProps, props, { isLoading: isLoading, isMobile: isMobile, disabled: isDisabled }),
         React.isValidElement(startIcon) &&
             React.cloneElement(startIcon, {
                 mr: "0.5rem",
@@ -1572,215 +1789,6 @@ var useTable = function (columns, data, options) {
         pagination: state.pagination,
         toggleAllState: state.toggleAllState,
     };
-};
-
-var breakpointMap = {
-    xs: 370,
-    sm: 576,
-    md: 852,
-    lg: 968,
-    xl: 1080,
-};
-var breakpoints = Object.values(breakpointMap).map(function (breakpoint) { return breakpoint + "px"; });
-var mediaQueries$1 = {
-    xs: "@media screen and (min-width: " + breakpointMap.xs + "px)",
-    sm: "@media screen and (min-width: " + breakpointMap.sm + "px)",
-    md: "@media screen and (min-width: " + breakpointMap.md + "px)",
-    lg: "@media screen and (min-width: " + breakpointMap.lg + "px)",
-    xl: "@media screen and (min-width: " + breakpointMap.xl + "px)",
-    nav: "@media screen and (min-width: " + breakpointMap.lg + "px)",
-};
-var shadows = {
-    level1: "0px 2px 12px -8px rgba(25, 19, 38, 0.1), 0px 1px 1px rgba(25, 19, 38, 0.05)",
-    active: "0px 0px 0px 1px #0098A1, 0px 0px 4px 8px rgba(31, 199, 212, 0.4)",
-    success: "0px 0px 0px 1px #31D0AA, 0px 0px 0px 4px rgba(49, 208, 170, 0.2)",
-    warning: "0px 0px 0px 1px #ED4B9E, 0px 0px 0px 4px rgba(237, 75, 158, 0.2)",
-    focus: "0px 0px 0px 1px #7645D9, 0px 0px 0px 4px rgba(118, 69, 217, 0.6)",
-    inset: "inset 0px 2px 2px -1px rgba(74, 74, 104, 0.1)",
-};
-var spacing = [0, 4, 8, 16, 24, 32, 48, 64];
-var radii = {
-    small: "4px",
-    default: "16px",
-    card: "32px",
-    circle: "50%",
-};
-var zIndices = {
-    dropdown: 10,
-    modal: 100,
-};
-var base = {
-    siteWidth: 1200,
-    breakpoints: breakpoints,
-    mediaQueries: mediaQueries$1,
-    spacing: spacing,
-    shadows: shadows,
-    radii: radii,
-    zIndices: zIndices,
-};
-
-/**
- * Can't use the media queries from "base.mediaQueries" because of how matchMedia works
- * In order for the listener to trigger we need have have the media query with a range, e.g.
- * (min-width: 370px) and (max-width: 576px)
- * @see https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList
- */
-var mediaQueries = (function () {
-    var prevMinWidth = 0;
-    return Object.keys(breakpointMap).reduce(function (accum, size, index) {
-        var _a, _b;
-        // Largest size is just a min-width of second highest max-width
-        if (index === Object.keys(breakpointMap).length - 1) {
-            return __assign(__assign({}, accum), (_a = {}, _a[size] = "(min-width: " + prevMinWidth + "px)", _a));
-        }
-        var minWidth = prevMinWidth;
-        var breakpoint = breakpointMap[size];
-        // Min width for next iteration
-        prevMinWidth = breakpoint + 1;
-        return __assign(__assign({}, accum), (_b = {}, _b[size] = "(min-width: " + minWidth + "px) and (max-width: " + breakpoint + "px)", _b));
-    }, {});
-})();
-var getKey = function (size) { return "is" + size.charAt(0).toUpperCase() + size.slice(1); };
-var useMatchBreakpoints = function () {
-    var _a = useState(function () {
-        return Object.keys(mediaQueries).reduce(function (accum, size) {
-            var _a;
-            var key = getKey(size);
-            var mql = window.matchMedia(mediaQueries[size]);
-            return __assign(__assign({}, accum), (_a = {}, _a[key] = mql.matches, _a));
-        }, {});
-    }), state = _a[0], setState = _a[1];
-    useEffect(function () {
-        // Create listeners for each media query returning a function to unsubscribe
-        var handlers = Object.keys(mediaQueries).map(function (size) {
-            var mql = window.matchMedia(mediaQueries[size]);
-            var handler = function (matchMediaQuery) {
-                var key = getKey(size);
-                setState(function (prevState) {
-                    var _a;
-                    return (__assign(__assign({}, prevState), (_a = {}, _a[key] = matchMediaQuery.matches, _a)));
-                });
-            };
-            // Safari < 14 fix
-            if (mql.addEventListener) {
-                mql.addEventListener("change", handler);
-            }
-            return function () {
-                // Safari < 14 fix
-                if (mql.removeEventListener) {
-                    mql.removeEventListener("change", handler);
-                }
-            };
-        });
-        return function () {
-            handlers.forEach(function (unsubscribe) {
-                unsubscribe();
-            });
-        };
-    }, [setState]);
-    return state;
-};
-
-var defaultParticleOptions = {
-    size: 30,
-    distance: 500,
-};
-var createParticle = function (x, y, imgSrc, options) {
-    if (options === void 0) { options = {}; }
-    var _a = __assign(__assign({}, defaultParticleOptions), options), size = _a.size, distance = _a.distance;
-    var particle = document.createElement("particle");
-    document.body.appendChild(particle);
-    var width = Math.floor(Math.random() * size + 8);
-    var height = width;
-    var destinationX = (Math.random() - 0.5) * distance;
-    var destinationY = (Math.random() - 0.5) * distance;
-    var rotation = Math.random() * 520;
-    var delay = Math.random() * 200;
-    particle.style.backgroundRepeat = "no-repeat";
-    particle.style.backgroundSize = "contain";
-    particle.style.backgroundImage = "url(" + imgSrc + ")";
-    particle.style.left = "0";
-    particle.style.top = "0";
-    particle.style.opacity = "0";
-    particle.style.pointerEvents = "none";
-    particle.style.position = "fixed";
-    particle.style.width = width + "px";
-    particle.style.height = height + "px";
-    var animation = particle.animate([
-        {
-            transform: "translate(-50%, -50%) translate(" + x + "px, " + y + "px) rotate(0deg)",
-            opacity: 1,
-        },
-        {
-            transform: "translate(-50%, -50%) translate(" + (x + destinationX) + "px, " + (y + destinationY) + "px) rotate(" + rotation + "deg)",
-            opacity: 0,
-        },
-    ], {
-        duration: Math.random() * 1000 + 5000,
-        easing: "cubic-bezier(0, .9, .57, 1)",
-        delay: delay,
-    });
-    animation.onfinish = function () {
-        particle.remove();
-    };
-};
-var defaultOptions = {
-    numberOfParticles: 30,
-    debounceDuration: 200,
-    particleOptions: {},
-};
-/**
- * @see https://css-tricks.com/playing-with-particles-using-the-web-animations-api/
- */
-var useParticleBurst = function (options) {
-    var _a = __assign(__assign({}, defaultOptions), options), selector = _a.selector, numberOfParticles = _a.numberOfParticles, debounceDuration = _a.debounceDuration, imgSrc = _a.imgSrc, disableWhen = _a.disableWhen, particleOptions = _a.particleOptions;
-    var makeListener = useCallback(function () {
-        return debounce(function (event) {
-            var isDisabled = disableWhen && disableWhen();
-            if (!isDisabled) {
-                var node = event.currentTarget;
-                if (event.clientX === 0 && event.clientY === 0) {
-                    var _a = node.getBoundingClientRect(), left = _a.left, width = _a.width, top_1 = _a.top, height = _a.height;
-                    var x = left + width / 2;
-                    var y = top_1 + height / 2;
-                    for (var i = 0; i < numberOfParticles; i += 1) {
-                        createParticle(x, y, imgSrc, particleOptions);
-                    }
-                }
-                else {
-                    for (var i = 0; i < numberOfParticles; i += 1) {
-                        createParticle(event.clientX, event.clientY + window.scrollY, imgSrc, particleOptions);
-                    }
-                }
-            }
-        }, debounceDuration, { leading: true });
-    }, [debounceDuration, numberOfParticles, imgSrc, disableWhen, particleOptions]);
-    var listener = makeListener();
-    var initialize = useCallback(function () {
-        if (selector) {
-            document.querySelectorAll(selector).forEach(function (element) {
-                element.addEventListener("click", listener);
-            });
-        }
-        else {
-            document.addEventListener("click", listener);
-        }
-    }, [selector, listener]);
-    var teardown = useCallback(function () {
-        if (selector) {
-            document.querySelectorAll(selector).forEach(function (element) {
-                element.removeEventListener("click", listener);
-            });
-        }
-        else {
-            document.removeEventListener("click", listener);
-        }
-    }, [selector, listener]);
-    useEffect(function () {
-        initialize();
-        return function () { return teardown(); };
-    }, [initialize, teardown]);
-    return { initialize: initialize, teardown: teardown };
 };
 
 var StyledModal = styled.div(templateObject_1$b || (templateObject_1$b = __makeTemplateObject(["\n  background: ", ";\n  box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.05);\n  border: 1px solid ", ";\n  border-radius: 32px;\n  width: 100%;\n  z-index: ", ";\n  overflow-y: auto;\n  ", " {\n    width: auto;\n    min-width: 360px;\n    max-width: 100%;\n  }\n"], ["\n  background: ", ";\n  box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.05);\n  border: 1px solid ", ";\n  border-radius: 32px;\n  width: 100%;\n  z-index: ", ";\n  overflow-y: auto;\n  ", " {\n    width: auto;\n    min-width: 360px;\n    max-width: 100%;\n  }\n"])), function (_a) {

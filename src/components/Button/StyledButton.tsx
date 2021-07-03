@@ -112,22 +112,22 @@ export const StyledButton2 = styled.button<ButtonProps>`
   align-items: center;
   background-color: #e40189;
   border: ${getButtonVariantProp("border")};
-  border-radius: 16px;
+  border-radius: 112px;
   box-shadow: ${getButtonVariantProp("boxShadow")};
   color: #e40189;
   cursor: pointer;
   display: inline-flex;
   font-family: inherit;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 400;
   /* max-content instead of auto for Safari fix */
   width: ${({ fullWidth }) => (fullWidth ? "100%" : "max-content")};
-  height: ${({ size }) => (size === "sm" ? "32px" : "48px")};
+  height: ${({ size }) => (size === "sm" ? "24px" : "48px")};
   line-height: 1;
   letter-spacing: 0.03em;
   justify-content: center;
   outline: 0;
-  padding: ${({ size }) => (size === "sm" ? "0 16px" : "0 24px")};
+  padding: ${({ size }) => (size === "sm" ? "0 12px" : "0 24px")};
   transition: background-color 0.2s;
   opacity: ${({ isLoading }) => (isLoading ? 0.5 : 1)};
 

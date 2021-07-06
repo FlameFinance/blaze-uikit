@@ -2481,14 +2481,14 @@ var socials = [
         items: [
             {
                 label: "English",
-                href: "https://t.me/NOSFinance",
+                href: "https://t.me/NosFinance_Official",
             },
         ],
     },
     {
         label: "Twitter",
         icon: "TwitterIcon",
-        href: "https://twitter.com/nosfinance",
+        href: "https://twitter.com/",
     },
 ];
 var MENU_HEIGHT = 64;
